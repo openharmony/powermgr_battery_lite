@@ -74,14 +74,15 @@ void UpdateBatteryMsg(BatInfo* battery)
     }
     g_batteryDevice->UpdateBatInfo(battery);
 
-    POWER_HILOGI("UpdateBatteryMsg():batSoc = %d ok." ,battery->batSoc);
-    POWER_HILOGI("UpdateBatteryMsg():batVoltage = %d ok." ,battery->batVoltage);
-    POWER_HILOGI("UpdateBatteryMsg():BatTemp = %d ok." ,battery->BatTemp);
-    POWER_HILOGI("UpdateBatteryMsg():batCapacity = %d ok." ,battery->batCapacity);
-    POWER_HILOGI("UpdateBatteryMsg():chargingStatus = %d ok." ,battery->chargingStatus);
-    POWER_HILOGI("UpdateBatteryMsg():pluggedType = %d ok." ,battery->pluggedType);
-    POWER_HILOGI("UpdateBatteryMsg():BatTechnology = %s ok." ,battery->BatTechnology);
-    POWER_HILOGI("UpdateBatteryMsg():healthStatus = %d ok." ,battery->healthStatus);
+    //POWER_HILOGI("UpdateBatteryMsg():batSoc = %d ok." ,battery->batSoc);
+    //POWER_HILOGI("UpdateBatteryMsg():batVoltage = %d ok." ,battery->batVoltage);
+    //POWER_HILOGI("UpdateBatteryMsg():BatTemp = %d ok." ,battery->BatTemp);
+    //POWER_HILOGI("UpdateBatteryMsg():batCapacity = %d ok." ,battery->batCapacity);
+    //POWER_HILOGI("UpdateBatteryMsg():chargingStatus = %d ok." ,battery->chargingStatus);
+    //POWER_HILOGI("UpdateBatteryMsg():pluggedType = %d ok." ,battery->pluggedType);
+    //POWER_HILOGI("UpdateBatteryMsg():BatTechnology = %s ok." ,battery->BatTechnology);
+    //POWER_HILOGI("UpdateBatteryMsg():healthStatus = %d ok." ,battery->healthStatus);
+    POWER_HILOGI("UpdateBatteryMsg():succeed");
     return;
 }
 
@@ -141,16 +142,16 @@ static void BatteryFeatureTimeerInit(void)
     {
         time_  =  PowerMgrCreateTimer(DEFAULT_INTERVAL_MSECS, DEFAULT_INTERVAL_MSECS , BatteryMonitorHandle);
         if (time_ == NULL) {
-            //HiLog::Debug(LABEL, "BatteryFeatureTimeerInit failed.");
+
             POWER_HILOGI("BatteryFeatureTimeerInit failed.");
             return;
         }
         if (PowerMgrStartTimer(time_, NULL) == FALSE) {
-            //HiLog::Debug(LABEL, "Failed to start timer.");
+
             POWER_HILOGI("Failed to start timer.");
             return;
         }
-        //HiLog::Debug(LABEL, "BatteryFeatureTimeerInit(void)...ok.");
+
         POWER_HILOGI("BatteryFeatureTimeerInit()...ok.");
     }
 }

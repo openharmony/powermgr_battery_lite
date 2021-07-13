@@ -15,6 +15,7 @@
 
 #ifndef IBATTERY_SRV_H
 #define IBATTERY_SRV_H
+#include <stdint.h>
 #include  "battery_info.h"
 
 #ifdef __cplusplus
@@ -43,13 +44,13 @@ typedef struct {
 
 typedef struct IBattery {
 
-    uint16 (*GetSoc)();
+    uint32_t (*GetSoc)();
     BatteryChargeState (*GetChargingStatus)();
     BatteryHealthState (*GetHealthStatus)();
     BatteryPluggedType (*GetPluggedType)();
-    uint16 (*GetVoltage)();
+    uint32_t (*GetVoltage)();
     char* (*GetTechnology)();
-    uint16 (*GetTemperature)();
+    uint32_t (*GetTemperature)();
     int (*TurnOnLed)(int red, int green, int blue);
     int (*TurnOffLed)();
     int (*SetLedColor)(int red, int green, int blue);

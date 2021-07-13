@@ -21,6 +21,7 @@
 #include "iproxy_server.h"
 #include "service.h"
 #include "hilog_wrapper.h"
+#include "battery_interface.h"
 
 #ifdef __cplusplus
 extern "C" {

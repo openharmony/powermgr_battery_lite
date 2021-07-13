@@ -1,0 +1,32 @@
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import("//build/lite/config/component/lite_component.gni")
+import("//build/lite/config/test.gni")
+
+unittest("battery_lite_test_interface") {
+  output_extension = "bin"
+  output_dir = "$root_out_dir/test/unittest/batterymng_test_lite"
+
+  sources = [ "src/batterymgr_interfaces_test.cpp" ]
+
+  include_dirs = [
+    "//base/sensors/sensor_lite/interfaces/kits/native/include",
+    "//base/hiviewdfx/hilog_lite/interfaces/native/kits",
+    "//third_party/bounds_checking_function/include",
+    "//base/powermgr/battery_lite/frameworks/include",
+  ]
+  deps = [
+    "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
+    "//base/powermgr/battery_lite/frameworks:batterymgr",
+    "//foundation/distributedschedule/samgr_lite/samgr:samgr"
+  ]
+}
+
+group("unittest") {
+  deps = [ ":battery_lite_test_interface" ]
+}

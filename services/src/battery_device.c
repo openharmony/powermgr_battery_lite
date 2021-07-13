@@ -15,12 +15,13 @@
 
 #include "battery_device.h"
 #include <string.h>
+#include "ibattery.h"
 
 static BatInfo battInfo = {
-    100,
+    80,
     10,
     20,
-    100,
+    60,
     CHARGE_STATE_ENABLE,
     PLUGGED_TYPE_WIRELESS,
     "Ternary_Lithium",
@@ -65,7 +66,7 @@ static int32_t Invoke(IServerProxy *iProxy, int funcId, void *origin, IpcIo *req
     return BATTERY_OK;
 }
 
-uint16 GetSocImpl()
+uint32_t GetSocImpl()
 {
     return battInfo.batSoc;
 }
@@ -81,7 +82,7 @@ BatteryPluggedType GetPluggedTypeImpl()
 {
     return battInfo.pluggedType;
 }
-uint16 GetVoltageImpl()
+uint32_t GetVoltageImpl()
 {
     return battInfo.batVoltage;
 }
@@ -89,7 +90,7 @@ char* GetTechnologyImpl()
 {
     return battInfo.BatTechnology;
 }
-uint16 GetTemperatureImpl()
+uint32_t GetTemperatureImpl()
 {
     return battInfo.BatTemp;
 }
