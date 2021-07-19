@@ -100,7 +100,7 @@ base/powermgr/battery_lite
 代码示例如下：
 
 ```
-int capacity = GetBatSoc();
+int32_t capacity = GetBatSoc();
 BatteryChargeState chargState = GetChargingStatus();
 ```
 
