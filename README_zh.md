@@ -50,7 +50,7 @@ base/powermgr/battery_lite
 </th>
 </tr>
 </thead>
-<tbody><tr id="row14574143723119"><td class="cellrowborder" valign="top" width="38.71%" headers="mcps1.1.3.1.1 "><p id="p169098161437"><a name="p169098161437"></a><a name="p169098161437"></a>int GetBatSoc()</p>
+<tbody><tr id="row14574143723119"><td class="cellrowborder" valign="top" width="38.71%" headers="mcps1.1.3.1.1 "><p id="p169098161437"><a name="p169098161437"></a><a name="p169098161437"></a>int32_t GetBatSoc()</p>
 </td>
 <td class="cellrowborder" valign="top" width="61.29%" headers="mcps1.1.3.1.2 "><p id="p105741337153115"><a name="p105741337153115"></a><a name="p105741337153115"></a>获取电池剩余电量（SOC）。</p>
 </td>
@@ -70,7 +70,7 @@ base/powermgr/battery_lite
 <td class="cellrowborder" valign="top" width="61.29%" headers="mcps1.1.3.1.2 "><p id="p32141298323"><a name="p32141298323"></a><a name="p32141298323"></a>获取当前连接的充电器类型。</p>
 </td>
 </tr>
-<tr id="row269082112447"><td class="cellrowborder" valign="top" width="38.71%" headers="mcps1.1.3.1.1 "><p id="p16690202119449"><a name="p16690202119449"></a><a name="p16690202119449"></a>int GetBatVoltage()</p>
+<tr id="row269082112447"><td class="cellrowborder" valign="top" width="38.71%" headers="mcps1.1.3.1.1 "><p id="p16690202119449"><a name="p16690202119449"></a><a name="p16690202119449"></a>int32_t GetBatVoltage()</p>
 </td>
 <td class="cellrowborder" valign="top" width="61.29%" headers="mcps1.1.3.1.2 "><p id="p1869014214445"><a name="p1869014214445"></a><a name="p1869014214445"></a>获取电池电压。</p>
 </td>
@@ -85,7 +85,7 @@ base/powermgr/battery_lite
 <td class="cellrowborder" valign="top" width="61.29%" headers="mcps1.1.3.1.2 "><p id="p181881615194414"><a name="p181881615194414"></a><a name="p181881615194414"></a>获取电池类型。</p>
 </td>
 </tr>
-<tr id="row18381310134520"><td class="cellrowborder" valign="top" width="38.71%" headers="mcps1.1.3.1.1 "><p id="p18838610114516"><a name="p18838610114516"></a><a name="p18838610114516"></a>int GetBatTemperature()</p>
+<tr id="row18381310134520"><td class="cellrowborder" valign="top" width="38.71%" headers="mcps1.1.3.1.1 "><p id="p18838610114516"><a name="p18838610114516"></a><a name="p18838610114516"></a>int32_t GetBatTemperature()</p>
 </td>
 <td class="cellrowborder" valign="top" width="61.29%" headers="mcps1.1.3.1.2 "><p id="p13838121064515"><a name="p13838121064515"></a><a name="p13838121064515"></a>获取电池温度。</p>
 </td>
