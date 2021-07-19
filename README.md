@@ -108,6 +108,6 @@ BatteryChargeState chargState = GetChargingStatus();
 
 ## Repositories Involved<a name="section63151229062"></a>
 
-Power management subsystem
+[Power management subsystem](https://gitee.com/openharmony/docs/blob/master/en/readme/power-management.md)
 
 **powermgr_powermgr_lite**
