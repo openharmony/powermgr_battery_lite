@@ -29,12 +29,12 @@ extern "C" {
 
 static  inline IUnknown *GetBatteryIUnknown(void)
 {
-	IUnknown *iUnknown = SAMGR_GetInstance()->GetFeatureApi(BATTERY_SERVICE ,BATTERY_INNER);
+    IUnknown *iUnknown = SAMGR_GetInstance()->GetFeatureApi(BATTERY_SERVICE, BATTERY_INNER);
     if (iUnknown == NULL) {
-        POWER_HILOGE("[SERVICE:%s]:BatteryClient::ChargingApiGet iUnknown is null",BATTERY_SERVICE);
+        POWER_HILOGE("[SERVICE:%s]:BatteryClient::ChargingApiGet iUnknown is null", BATTERY_SERVICE);
         return NULL;
     }
-	return iUnknown;
+    return iUnknown;
 }
 
 int32_t GetBatSoc();
@@ -44,7 +44,6 @@ BatteryPluggedType GetPluggedType();
 int32_t GetBatVoltage();
 char* GetBatTechnology();
 int32_t GetBatTemperature();
-
 
 #ifdef __cplusplus
 }

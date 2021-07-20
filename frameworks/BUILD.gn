@@ -63,4 +63,3 @@ lite_library("batterymgr") {
   ]
   deps += local_deps
 }
-

@@ -13,29 +13,26 @@
  * limitations under the License.
  */
  
- #ifndef BATTERY_INTF_DEFINE_H
- #define BATTERY_INTF_DEFINE_H
+#ifndef BATTERY_INTF_DEFINE_H
+#define BATTERY_INTF_DEFINE_H
+
+#include <iunknown.h>
+#include "battery_info.h"
  
- #include <iunknown.h>
- #include "battery_info.h"
- 
- #ifdef __cplusplus
+#ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
 
-
-
-#define INHERIT_BATTERY_INTERFACE                                              \
+#define INHERIT_BATTERY_INTERFACE                                                  \
     int32_t (*GetBatSocFunc)(IUnknown *iUnknown);                                  \
     BatteryChargeState (*GetChargingStatusFunc)(IUnknown *iUnknown);               \
     BatteryHealthState (*GetHealthStatusFunc)(IUnknown *iUnknown);                 \
-	BatteryPluggedType (*GetPluggedTypeFunc)(IUnknown *iUnknown);                  \
-	int32_t (*GetBatVoltageFunc)(IUnknown *iUnknown);                              \
+    BatteryPluggedType (*GetPluggedTypeFunc)(IUnknown *iUnknown);                  \
+    int32_t (*GetBatVoltageFunc)(IUnknown *iUnknown);                              \
     char* (*GetBatTechnologyFunc)(IUnknown *iUnknown);                             \
     int32_t (*GetBatTemperatureFunc)(IUnknown *iUnknown)
 
 #ifdef __cplusplus
 }
-#endif // __cplusplus
- 
- #endif //BATTERYMGR_INTF_DEFINE_H
+#endif // __cplusplus 
+#endif // BATTERYMGR_INTF_DEFINE_H

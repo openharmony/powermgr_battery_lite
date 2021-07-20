@@ -28,7 +28,6 @@ typedef struct {
     INHERIT_BATTERY_INTERFACE;
 } BatteryInterface;
 
-
 #ifdef __cplusplus
 }
 #endif

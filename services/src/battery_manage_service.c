@@ -46,7 +46,6 @@ static BatInfo battpoint;
 static void BatteryFeatureTimeerInit(void);
 static BatteryService *BatteryGetInstance(void);
 
-
 static BOOL Initialize(Service *service, Identity identity)
 {
 
@@ -73,15 +72,6 @@ void UpdateBatteryMsg(BatInfo* battery)
         return;
     }
     g_batteryDevice->UpdateBatInfo(battery);
-
-    //POWER_HILOGI("UpdateBatteryMsg():batSoc = %d ok." ,battery->batSoc);
-    //POWER_HILOGI("UpdateBatteryMsg():batVoltage = %d ok." ,battery->batVoltage);
-    //POWER_HILOGI("UpdateBatteryMsg():BatTemp = %d ok." ,battery->BatTemp);
-    //POWER_HILOGI("UpdateBatteryMsg():batCapacity = %d ok." ,battery->batCapacity);
-    //POWER_HILOGI("UpdateBatteryMsg():chargingStatus = %d ok." ,battery->chargingStatus);
-    //POWER_HILOGI("UpdateBatteryMsg():pluggedType = %d ok." ,battery->pluggedType);
-    //POWER_HILOGI("UpdateBatteryMsg():BatTechnology = %s ok." ,battery->BatTechnology);
-    //POWER_HILOGI("UpdateBatteryMsg():healthStatus = %d ok." ,battery->healthStatus);
     POWER_HILOGI("UpdateBatteryMsg():succeed");
     return;
 }
@@ -133,7 +123,6 @@ void BatteryMonitorHandle(void *arg)
         .msgValue = 0
     };
     SAMGR_SendRequest(&(g_batteryService.identity),&request,NULL);
-    //POWER_HILOGI("BatteryMonitorHandle()...ok.");
 }
 
 static void BatteryFeatureTimeerInit(void)

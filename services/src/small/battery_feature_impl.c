@@ -70,7 +70,7 @@ static int32_t FeatureInvoke(IServerProxy *iProxy, int32_t funcId, void *origin,
 
 static int32_t BatterySOCInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-	int32_t ret = BatterySOCImpl((IUnknown *)iProxy);
+    int32_t ret = BatterySOCImpl((IUnknown *)iProxy);
     IpcIoPushInt32(reply, ret);
     return EC_SUCCESS;
 }

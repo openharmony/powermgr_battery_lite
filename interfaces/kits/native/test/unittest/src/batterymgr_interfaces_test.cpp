@@ -41,7 +41,7 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest001, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest001 called");
     int32_t soc = GetBatSoc();
-    EXPECT_EQ(soc >= 0 && soc <= 100 ,1) << "GetBatterySoc ret = " << soc << endl;
+    EXPECT_EQ(soc >= 0 && soc <= 100, 1) << "GetBatterySoc ret = " << soc << endl;
 };
 
 /**
@@ -54,7 +54,7 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest002, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest002 called");
     BatteryChargeState status = GetChargingStatus();
-    EXPECT_EQ(status>= CHARGE_STATE_NONE && status <= CHARGE_STATE_BUTT ,1) 
+    EXPECT_EQ(status >= CHARGE_STATE_NONE && status <= CHARGE_STATE_BUTT, 1)
         << "GetChargingStatus ret = " << status << endl;
 };
 
@@ -68,7 +68,7 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest003, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest003 called");
     BatteryHealthState status = GetHealthStatus();
-    EXPECT_EQ(status >= HEALTH_STATE_UNKNOWN && status <= HEALTH_STATE_BUTT ,1) 
+    EXPECT_EQ(status >= HEALTH_STATE_UNKNOWN && status <= HEALTH_STATE_BUTT, 1) 
         << "GetHealthStatus ret = " << status << endl;
 };
 
@@ -82,7 +82,7 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest004, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest004 called");
     BatteryPluggedType status = GetPluggedType();
-    EXPECT_EQ(status >= PLUGGED_TYPE_NONE && status <= PLUGGED_TYPE_BUTT ,1) 
+    EXPECT_EQ(status >= PLUGGED_TYPE_NONE && status <= PLUGGED_TYPE_BUTT, 1) 
         << "GetPluggedType ret = " << status << endl;
 };
 
@@ -96,11 +96,9 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest005, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest005 called");
     int32_t voltage = GetBatVoltage();
-    EXPECT_EQ(voltage >= 0 && voltage <= 100 ,1) 
+    EXPECT_EQ(voltage >= 0 && voltage <= 100, 1) 
        << "GetBatVoltage ret = " << voltage << endl;
 };
-
-
 
 /**
  * @tc.name: BatteryMgrInterfaceTest006
@@ -112,11 +110,9 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest006, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest007 called");
     int32_t temperature = GetBatTemperature();
-    EXPECT_EQ(temperature >=0 && temperature <=100 ,1) 
+    EXPECT_EQ(temperature >= 0 && temperature <= 100, 1) 
         << "GetBatTemperature ret = " << temperature << endl;
 };
-
-
 
 /**
  * @tc.name: BatteryMgrInterfaceTest007
@@ -128,9 +124,7 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest007, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest006 called");
     char *technology = GetBatTechnology();
-    EXPECT_EQ(strcmp(technology,"Ternary_Lithium"),0) 
+    EXPECT_EQ(strcmp(technology, "Ternary_Lithium"), 0) 
         << "GetBatTechnology ret = " << technology << endl;
 };
-
-
 };
