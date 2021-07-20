@@ -196,13 +196,13 @@ static void Init(void)
     BOOL result = SAMGR_GetInstance()->RegisterService((Service *)&g_batteryDevice);
     if (result == FALSE) {
         //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s RegisterFeature failed.",
-        BATTERY_DEVICE, __func__);
+        //BATTERY_DEVICE, __func__);
         return;
     }
     BOOL apiResult = SAMGR_GetInstance()->RegisterDefaultFeatureApi(BATTERY_DEVICE, GET_IUNKNOWN(g_batteryDevice));
     if (apiResult == FALSE) {
         //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s RegisterFeatureApi failed",
-        BATTERY_DEVICE, __func__);
+        //BATTERY_DEVICE, __func__);
         return;
     }
 
@@ -241,7 +241,7 @@ const IBattery *NewBatterInterfaceInstance(void)
         GetBatteryDeviceMethods(&g_ibattery);
     }
      //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s NewBatterInterfaceInstance() ok...",
-        BATTERY_DEVICE, __func__);
+        //BATTERY_DEVICE, __func__);
     return &g_ibattery;   
 }
 
