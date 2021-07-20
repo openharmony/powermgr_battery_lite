@@ -22,10 +22,8 @@
 #include "ibattery.h"
 #include "iunknown.h"
 
-
 static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
 static BatteryInterface *g_intf = NULL;
-
 
 static BatteryInterface *GetBatteryInterface(void)
 {
@@ -37,7 +35,7 @@ static BatteryInterface *GetBatteryInterface(void)
         pthread_mutex_unlock(&g_mutex);
         return g_intf;
     }
-	IUnknown *iUnknown = GetBatteryIUnknown();
+    IUnknown *iUnknown = GetBatteryIUnknown();
     if (iUnknown == NULL) {
         POWER_HILOGE("Failed to get battery iUnknown");
         return NULL;
@@ -50,13 +48,12 @@ static BatteryInterface *GetBatteryInterface(void)
         return NULL;
     }
     pthread_mutex_unlock(&g_mutex);
-
     return g_intf;
 }
 
 int32_t GetBatSoc()
 {
-	int32_t ret = EC_FAILURE;
+    int32_t ret = EC_FAILURE;
     BatteryInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         ret = intf->GetBatSocFunc((IUnknown *)intf);
@@ -74,7 +71,7 @@ BatteryChargeState GetChargingStatus()
 }
 BatteryHealthState GetHealthStatus()
 {
-	BatteryHealthState state = HEALTH_STATE_UNKNOWN;
+    BatteryHealthState state = HEALTH_STATE_UNKNOWN;
     BatteryInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         state = intf->GetHealthStatusFunc((IUnknown *)intf);
@@ -83,7 +80,7 @@ BatteryHealthState GetHealthStatus()
 }
 BatteryPluggedType GetPluggedType()
 {
-	BatteryPluggedType state = PLUGGED_TYPE_NONE;
+    BatteryPluggedType state = PLUGGED_TYPE_NONE;
     BatteryInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         state = intf->GetPluggedTypeFunc((IUnknown *)intf);
@@ -92,7 +89,7 @@ BatteryPluggedType GetPluggedType()
 }
 int32_t GetBatVoltage()
 {
-	int32_t ret = EC_FAILURE;
+    int32_t ret = EC_FAILURE;
     BatteryInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         ret = intf->GetBatVoltageFunc((IUnknown *)intf);
@@ -103,7 +100,6 @@ int32_t GetBatVoltage()
 char strbuff[64] = {0};
 char* GetBatTechnology()
 {
-
     BatteryInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         strcpy(strbuff, intf->GetBatTechnologyFunc((IUnknown *)intf));
@@ -112,7 +108,7 @@ char* GetBatTechnology()
 }
 int32_t GetBatTemperature()
 {
-	int32_t ret = EC_FAILURE;
+    int32_t ret = EC_FAILURE;
     BatteryInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         ret = intf->GetBatTemperatureFunc((IUnknown *)intf);

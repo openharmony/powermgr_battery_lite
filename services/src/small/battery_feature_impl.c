@@ -94,21 +94,21 @@ static int32_t PluggedTypeInvoke(IServerProxy *iProxy, void *origin, IpcIo *req,
 }
 static int32_t VoltageInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-	int32_t ret = VoltageImpl((IUnknown *)iProxy);
+    int32_t ret = VoltageImpl((IUnknown *)iProxy);
     IpcIoPushInt32(reply, ret);
     return EC_SUCCESS;
 }
 static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
 
-    char *strbuff=TechnologyImpl((IUnknown *)iProxy);
+    char *strbuff = TechnologyImpl((IUnknown *)iProxy);
     IpcIoPushString(reply,strbuff);
 
     return EC_SUCCESS;
 }
 static int32_t BatteryTemperatureInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-	int32_t ret = BatteryTemperatureImpl((IUnknown*)iProxy);
+    int32_t ret = BatteryTemperatureImpl((IUnknown*)iProxy);
     IpcIoPushInt32(reply, ret);
     return EC_SUCCESS;
 }

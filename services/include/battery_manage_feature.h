@@ -29,7 +29,6 @@ extern "C" {
 
 static IBattery *g_batteryDevice = NULL;
 
-
 typedef struct {
     INHERIT_FEATURE;
     INHERIT_IUNKNOWNENTRY(BatteryInterface);
@@ -51,8 +50,6 @@ char* TechnologyImpl(IUnknown *iUnknown);
 
 int32_t BatteryTemperatureImpl(IUnknown *iUnknown);
 
-
-
 #define BATTERY_FEATURE_INTERFACE_IMPL                              \
     .GetName = GetFeatureName,                                      \
     .OnInitialize = OnFeatureInitialize,                            \
@@ -67,9 +64,6 @@ int32_t BatteryTemperatureImpl(IUnknown *iUnknown);
     .GetBatVoltageFunc = VoltageImpl,                                 \
     .GetBatTechnologyFunc = TechnologyImpl,                            \
 	.GetBatTemperatureFunc = BatteryTemperatureImpl
-
-
-
 
 BatteryFeatureApi *GetBatteryFeatureImpl(void);
 

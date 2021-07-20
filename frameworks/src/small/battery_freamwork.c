@@ -124,7 +124,7 @@ static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
     }
 
     char **strbuff=(char **)owner;
-    *strbuff = IpcIoPopString(reply,&len);
+    *strbuff = IpcIoPopString(reply, &len);
     if (strbuff == NULL || len == 0) {
         POWER_HILOGD("BatteryCallbackBuff():strbuff == NULL || len == 0 endl");
         return EC_INVALID;
@@ -229,17 +229,17 @@ int32_t GetBatSoc()
     POWER_HILOGI("GetBatSoc():start........");
     int32_t ret = EC_FAILURE;
     BatteryProxyInterface *intf = GetBatteryInterface();
-    if(intf == NULL) {    
+    if (intf == NULL) {    
         POWER_HILOGI("intf == NULL:err........");
     }
-    if(intf->GetBatSocFunc == NULL) {
+    if (intf->GetBatSocFunc == NULL) {
         POWER_HILOGI("(intf->GetBatSocFunc:err........");
     }
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         ret = intf->GetBatSocFunc((IUnknown *)intf);
     }
     POWER_HILOGI("GetBatSoc():end........");
-    POWER_HILOGI("GetBatSoc():ret = %d........",ret);
+    POWER_HILOGI("GetBatSoc():ret = %d........", ret);
     return ret;
 }
 
@@ -288,7 +288,7 @@ char* GetBatTechnology()
     char* strbuff = NULL;
     BatteryProxyInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
-        strbuff=intf->GetBatTechnologyFunc((IUnknown *)intf);
+        strbuff = intf->GetBatTechnologyFunc((IUnknown *)intf);
     }
     return strbuff;
 }

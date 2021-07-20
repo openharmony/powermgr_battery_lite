@@ -23,8 +23,6 @@
 #include "string"
 #include "battery_manage_service.h"
 
-
-
 namespace OHOS {
 
 namespace {
@@ -36,16 +34,13 @@ BatteryClient::BatteryClient():batteryInterface(NULL){}
 
 BatteryClient::~BatteryClient()
 {
-    
     if (batteryInterface != NULL) {
         batteryInterface = NULL;
     }
-    
 }
 
 BatteryInterface *BatteryClient::ChargingApiGet(void)
 {
-
     if (batteryInterface != NULL) {
         return batteryInterface;
     }

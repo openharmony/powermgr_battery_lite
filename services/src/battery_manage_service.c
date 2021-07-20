@@ -92,7 +92,6 @@ static BOOL MessageHandle(Service *service, Request *request)
     }
     POWER_HILOGI("BatteryMessageHandle begin");
     return true;
-
 }
 static TaskConfig GetTaskConfig(Service *service)
 {
@@ -131,7 +130,6 @@ static void BatteryFeatureTimeerInit(void)
     {
         time_  =  PowerMgrCreateTimer(DEFAULT_INTERVAL_MSECS, DEFAULT_INTERVAL_MSECS , BatteryMonitorHandle);
         if (time_ == NULL) {
-
             POWER_HILOGI("BatteryFeatureTimeerInit failed.");
             return;
         }

@@ -48,8 +48,6 @@ BOOL OnFeatureMessage(Feature *feature, Request *request)
     return ((feature != NULL) && (request != NULL)) ? TRUE : FALSE;
 }
 
-
-
 int32_t BatterySOCImpl(IUnknown *iUnknown)
 {
     int32_t soc = BATT_INT_VALUE;
@@ -147,16 +145,14 @@ int32_t BatteryTemperatureImpl(IUnknown *iUnknown)
     return temperature;
 }
 
-
-
 static void GInit()
 {
 
     BatteryFeatureApi *feature = GetBatteryFeatureImpl();
-	if(feature == NULL) {
-		POWER_HILOGI("SYS_FEATURE_INIT called err. g_battFeatureImpl");
-		return;
-	}
+    if(feature == NULL) {
+        POWER_HILOGI("SYS_FEATURE_INIT called err. g_battFeatureImpl");
+        return;
+    }
 
     POWER_HILOGI("SYS_FEATURE_INIT called.");
     BOOL result = SAMGR_GetInstance()->RegisterFeature(BATTERY_SERVICE, (Feature *)feature);
@@ -170,9 +166,7 @@ static void GInit()
         return;
     }
 
-
     POWER_HILOGI("SAMGR_GetInstance()->RegisterFeature ok...");
     POWER_HILOGI("SAMGR_GetInstance()->RegisterFeatureApi ok...");
-
 }
 SYSEX_FEATURE_INIT(GInit);

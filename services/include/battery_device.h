@@ -76,9 +76,4 @@ typedef struct BatteryDevice {
 }
 #endif
 #endif
-
-
-
-
-
 #endif // BATTERY_SRV_CLIENT_H
