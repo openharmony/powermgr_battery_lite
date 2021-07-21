@@ -15,8 +15,8 @@
 
 #include "gtest/gtest.h"
 #include "hilog/log.h"
-#include "battery_framework.h"
 #include "battery_info.h"
+#include "battery_framework.h"
 
 #undef LOG_TAG
 #define LOG_TAG "BATTERYMGR_LITE"

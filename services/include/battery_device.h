@@ -16,17 +16,14 @@
 #ifndef BATTERY_DEVICE_H
 #define BATTERY_DEVICE_H
 
-
-#include <iproxy_server.h>
-
-#include <pthread.h>
-
-#include "feature.h"
-#include <iunknown.h>
-#include <log.h>
-#include "samgr_lite.h"
 #include "ohos_init.h"
+#include "samgr_lite.h"
 #include "service.h"
+#include "feature.h"
+#include <iproxy_server.h>
+#include <iunknown.h>
+#include <pthread.h>
+#include <log.h>
 #include "ibattery.h"
 
 

@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
+#include "string"
+#include "feature.h"
 #include <iproxy_server.h>
 #include <iunknown.h>
-#include "feature.h"
 #include "samgr_lite.h"
+#include "hilog_wrapper.h"
 #include "battery_info.h"
 #include "battery_client.h"
-#include "hilog_wrapper.h"
-#include "string"
 #include "battery_manage_service.h"
 
 namespace OHOS {

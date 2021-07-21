@@ -15,12 +15,13 @@
 
 #ifndef BATTERY_MANAGE_FEATURE_H
 #define BATTERY_MANAGE_FEATURE_H
-#include "battery_info.h"
+
 #include "feature.h"
 #include "message.h"
-#include "battery_mgr.h"
 #include "service.h"    
 #include "ibattery.h"
+#include "battery_info.h"
+#include "battery_mgr.h"
 #include "battery_interface.h"
 
 #ifdef __cplusplus

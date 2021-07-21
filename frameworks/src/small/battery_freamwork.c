@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-#include "battery_framework.h"
-#include "battery_info.h"
 #include <stdint.h>
 #include <stdlib.h>
 #include <ohos_errno.h>
 #include <pthread.h>
 #include <unistd.h>
-#include "hilog_wrapper.h"
-#include "battery_interface.h"
-#include "ibattery.h"
 #include "iunknown.h"
+#include "battery_framework.h"
+#include "battery_info.h"
+#include "battery_interface.h"
+#include "hilog_wrapper.h"
+#include "ibattery.h"
 
 #define MAX_DATA_LEN    1024
 
@@ -111,13 +111,12 @@ static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
     size_t len = 0;
 
     if ((reply == NULL) || (owner == NULL)) {
-
         return EC_INVALID;
     }
 
-    char **strbuff=(char **)owner;
-    *strbuff = IpcIoPopString(reply, &len);
-    if (strbuff == NULL || len == 0) {
+    char **strBuff = (char **)owner;
+    *strBuff = IpcIoPopString(reply, &len);
+    if (strBuff == NULL || len == 0) {
         return EC_INVALID;
     }
 
@@ -260,12 +259,12 @@ int32_t GetBatVoltage()
 
 char* GetBatTechnology()
 {
-    char* strbuff = NULL;
+    char* strBuff = NULL;
     BatteryProxyInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
-        strbuff = intf->GetBatTechnologyFunc((IUnknown *)intf);
+        strBuff = intf->GetBatTechnologyFunc((IUnknown *)intf);
     }
-    return strbuff;
+    return strBuff;
 }
 
 int32_t GetBatTemperature()

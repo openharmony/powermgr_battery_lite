@@ -16,7 +16,7 @@
 #ifndef IBATTERY_SRV_H
 #define IBATTERY_SRV_H
 #include <stdint.h>
-#include  "battery_info.h"
+#include "battery_info.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -25,13 +25,13 @@ extern "C" {
 
 typedef struct {
     /** 电池电量 */
-    uint16 batSoc;
+    uint32_t batSoc;
     /** 电池电压 */
-    uint16 batVoltage;
+    uint32_t batVoltage;
     /** 电池温度 */
-    uint16 BatTemp;
+    uint32_t BatTemp;
     /** 电池容量 */
-    uint16 batCapacity;
+    uint32_t batCapacity;
     /** 充电状态 */
     BatteryChargeState chargingStatus;
     /** 连接类型 */
@@ -60,8 +60,8 @@ typedef struct IBattery {
 
 } IBattery;
 
- const IBattery *NewBatterInterfaceInstance(void);
- const int32 FreeBatterInterfaceInstance(void);
+IBattery *NewBatterInterfaceInstance(void);
+uint32_t FreeBatterInterfaceInstance(void);
 
 #ifdef __cplusplus
 }

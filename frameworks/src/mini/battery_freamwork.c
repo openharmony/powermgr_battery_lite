@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-#include "battery_framework.h"
-#include "battery_info.h"
 #include <stdint.h>
 #include <pthread.h>
-#include "hilog_wrapper.h"
-#include "battery_interface.h"
 #include "ibattery.h"
 #include "iunknown.h"
+#include "hilog_wrapper.h"
+#include "battery_info.h"
+#include "battery_interface.h"
+#include "battery_framework.h"
 
 static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
 static BatteryInterface *g_intf = NULL;
@@ -92,14 +92,14 @@ int32_t GetBatVoltage()
     return ret;
 }
 
-char strbuff[64] = {0};
 char* GetBatTechnology()
 {
+    char* strBuff = NULL;
     BatteryInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
-        strcpy(strbuff, intf->GetBatTechnologyFunc((IUnknown *)intf));
+        strBuff = intf->GetBatTechnologyFunc((IUnknown *)intf);
     }
-    return strbuff;
+    return strBuff;
 }
 int32_t GetBatTemperature()
 {

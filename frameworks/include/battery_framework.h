@@ -18,8 +18,8 @@
 
 #include <iunknown.h> 
 #include <samgr_lite.h> 
-#include "battery_mgr.h"
 #include "battery_info.h"
+#include "battery_mgr.h"
 #include "batterymgr_intf_define.h"
 #include "hilog_wrapper.h"
 

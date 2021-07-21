@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-#include "battery_device.h"
 #include <string.h>
 #include "ibattery.h"
+#include "battery_device.h"
 
 static BatInfo battInfo = {
     80,
@@ -27,7 +27,6 @@ static BatInfo battInfo = {
     "Ternary_Lithium",
     HEALTH_STATE_GOOD,
 };
-
 
 static BatteeryDeviceFeatureApi *g_batteryFeatureHandle = NULL;
 static IBattery g_ibattery;
@@ -41,7 +40,6 @@ static BOOL Initialize(Service *service, Identity identity)
 {
     return TRUE;
 }
-
 
 static BOOL MessageHandle(Service *service, Request *msg)
 {
@@ -108,7 +106,7 @@ void ShutDownImpl()
 }
 void UpdateBatInfoImpl(BatInfo* battery)
 {
-    if(battery == NULL) {
+    if (battery == NULL) {
         return;
     }
     battery->batSoc = battInfo.batSoc;
@@ -191,7 +189,7 @@ void GetBatteryDeviceMethods(IBattery *device)
      device->UpdateBatInfo = g_batteryFeatureHandle->UpdateBatInfo;
 }
 
-const IBattery *NewBatterInterfaceInstance(void)
+IBattery *NewBatterInterfaceInstance(void)
 {
     if(g_batteryFeatureHandle == NULL) {
         ChargingApiGet();
@@ -200,7 +198,7 @@ const IBattery *NewBatterInterfaceInstance(void)
     return &g_ibattery;   
 }
 
-const int32 FreeBatterInterfaceInstance(void)
+uint32_t FreeBatterInterfaceInstance(void)
 {
     return 0;
 }
