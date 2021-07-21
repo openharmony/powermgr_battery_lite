@@ -37,20 +37,20 @@ static BatteryProxyInterface *g_intf = NULL;
 static int32_t BatteryCallbackInt(IOwner owner, int32_t code, IpcIo *reply)
 {
     if ((reply == NULL) || (owner == NULL)) {
-        POWER_HILOGE("Invalid parameter");
+        // POWER_HILOGE("Invalid parameter");
         return EC_INVALID;
     }
 
     int32_t *ret = (int32_t *)owner;
     *ret = IpcIoPopInt32(reply);
-    POWER_HILOGD("BatteryCallback():start");
+    // POWER_HILOGD("BatteryCallback():start");
     return EC_SUCCESS;
 }
 
 static int32_t GetBatSocProxy(IUnknown *iUnknown)
 {
 
-    POWER_HILOGD("static int32_t GetBatSocProxy(IUnknown *iUnknown):start");
+    // POWER_HILOGD("static int32_t GetBatSocProxy(IUnknown *iUnknown):start");
     IpcIo request;
     char buffer[MAX_DATA_LEN];
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
@@ -58,7 +58,7 @@ static int32_t GetBatSocProxy(IUnknown *iUnknown)
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETSOC, &request, &ret, BatteryCallbackInt);
-    POWER_HILOGD("static int32_t GetBatSocProxy(IUnknown *iUnknown):end");
+    // POWER_HILOGD("static int32_t GetBatSocProxy(IUnknown *iUnknown):end");
 
     return ret;
 }
@@ -71,7 +71,7 @@ static BatteryChargeState GetChargingStatusProxy(IUnknown *iUnknown)
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETCHARGING, &request, &ret, BatteryCallbackInt);
-    POWER_HILOGD("GetChargingStatusProxy():start");
+    // POWER_HILOGD("GetChargingStatusProxy():start");
 
     return ret;
 }
@@ -84,7 +84,7 @@ static BatteryHealthState GetHealthStatusProxy(IUnknown *iUnknown)
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETHEALTH, &request, &ret, BatteryCallbackInt);
-    POWER_HILOGD("GetHealthStatusProxy():start");
+    // POWER_HILOGD("GetHealthStatusProxy():start");
 
     return ret;
 }
@@ -97,7 +97,7 @@ static BatteryPluggedType GetPluggedTypeProxy(IUnknown *iUnknown)
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETPLUGTYPE, &request, &ret, BatteryCallbackInt);
-    POWER_HILOGD("GetPluggedTypeProxy():start");
+    // POWER_HILOGD("GetPluggedTypeProxy():start");
 
     return ret;
 }
@@ -110,7 +110,7 @@ static int32_t GetBatVoltageProxy(IUnknown *iUnknown)
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETVOLTAGE, &request, &ret, BatteryCallbackInt);
-    POWER_HILOGD("GetBatVoltageProxy():start");
+    // POWER_HILOGD("GetBatVoltageProxy():start");
     return ret;
 }
 
@@ -119,17 +119,17 @@ static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
     size_t len = 0;
 
     if ((reply == NULL) || (owner == NULL)) {
-        POWER_HILOGE("Invalid parameter");
+        // POWER_HILOGE("Invalid parameter");
         return EC_INVALID;
     }
 
     char **strbuff=(char **)owner;
     *strbuff = IpcIoPopString(reply, &len);
     if (strbuff == NULL || len == 0) {
-        POWER_HILOGD("BatteryCallbackBuff():strbuff == NULL || len == 0 endl");
+        // POWER_HILOGD("BatteryCallbackBuff():strbuff == NULL || len == 0 endl");
         return EC_INVALID;
     }
-    POWER_HILOGD("BatteryCallback():start");
+    // POWER_HILOGD("BatteryCallback():start");
     return EC_SUCCESS;
 }
 
@@ -154,7 +154,7 @@ static int32_t GetBatTemperatureProxy(IUnknown *iUnknown)
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETTEMPERATURE, &request, &ret, BatteryCallbackInt);
-    POWER_HILOGD("GetBatTemperatureProxy():start");
+    // POWER_HILOGD("GetBatTemperatureProxy():start");
 
     return ret;
 }
@@ -167,7 +167,7 @@ static void *CreatClient(const char *service, const char *feature, uint32_t size
     uint32_t len = size + sizeof(BatteryProxyEntry);
     uint8_t *client = malloc(len);
     if (client == NULL) {
-        POWER_HILOGE("CreatClient():malloc return NULL");
+        // POWER_HILOGE("CreatClient():malloc return NULL");
         return NULL;
     }
 
@@ -196,9 +196,9 @@ static void DestroyClient(const char *service, const char *feature, void *iproxy
 
 static BatteryProxyInterface *GetBatteryInterface(void)
 {
-    if (g_intf != NULL) {
-        return g_intf;
-    }
+    // if (g_intf != NULL) {
+        // return g_intf;
+    // }
     pthread_mutex_lock(&g_mutex);
     if (g_intf != NULL) {
         pthread_mutex_unlock(&g_mutex);
@@ -208,38 +208,38 @@ static BatteryProxyInterface *GetBatteryInterface(void)
 
     IUnknown *iUnknown = GetBatteryIUnknown();
     if (iUnknown == NULL) {
-        POWER_HILOGE("Failed to get batterymgr iUnknown");
+        // POWER_HILOGE("Failed to get batterymgr iUnknown");
         pthread_mutex_unlock(&g_mutex);
         return NULL;
     }
 
     int ret = iUnknown->QueryInterface(iUnknown, DEFAULT_VERSION, (void **)&g_intf);
     if ((ret != EC_SUCCESS) || (g_intf == NULL)) {
-        POWER_HILOGE("Failed to query batteryInterface interface");
+        // POWER_HILOGE("Failed to query batteryInterface interface");
         pthread_mutex_unlock(&g_mutex);
         return NULL;
     }
     pthread_mutex_unlock(&g_mutex);
-    POWER_HILOGI("Succeed to get batteryInterface proxy interface");
+    // POWER_HILOGI("Succeed to get batteryInterface proxy interface");
     return g_intf;
 }
 
 int32_t GetBatSoc()
 {
-    POWER_HILOGI("GetBatSoc():start........");
+    // POWER_HILOGI("GetBatSoc():start........");
     int32_t ret = EC_FAILURE;
     BatteryProxyInterface *intf = GetBatteryInterface();
     if (intf == NULL) {    
-        POWER_HILOGI("intf == NULL:err........");
+        // POWER_HILOGI("intf == NULL:err........");
     }
     if (intf->GetBatSocFunc == NULL) {
-        POWER_HILOGI("(intf->GetBatSocFunc:err........");
+        // POWER_HILOGI("(intf->GetBatSocFunc:err........");
     }
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         ret = intf->GetBatSocFunc((IUnknown *)intf);
     }
-    POWER_HILOGI("GetBatSoc():end........");
-    POWER_HILOGI("GetBatSoc():ret = %d........", ret);
+    // POWER_HILOGI("GetBatSoc():end........");
+    // POWER_HILOGI("GetBatSoc():ret = %d........", ret);
     return ret;
 }
 

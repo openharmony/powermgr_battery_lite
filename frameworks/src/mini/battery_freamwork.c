@@ -27,9 +27,9 @@ static BatteryInterface *g_intf = NULL;
 
 static BatteryInterface *GetBatteryInterface(void)
 {
-	if (g_intf != NULL) {
-        return g_intf;
-    }
+	// if (g_intf != NULL) {
+        // return g_intf;
+    // }
     pthread_mutex_lock(&g_mutex);
     if (g_intf != NULL) {
         pthread_mutex_unlock(&g_mutex);
@@ -37,13 +37,13 @@ static BatteryInterface *GetBatteryInterface(void)
     }
     IUnknown *iUnknown = GetBatteryIUnknown();
     if (iUnknown == NULL) {
-        POWER_HILOGE("Failed to get battery iUnknown");
+        // POWER_HILOGE("Failed to get battery iUnknown");
         return NULL;
     }
 
     int ret = iUnknown->QueryInterface(iUnknown, DEFAULT_VERSION, (void **)&g_intf);
     if ((ret != EC_SUCCESS) || (g_intf == NULL)) {
-        POWER_HILOGE("Failed to  get battery interface");
+        // POWER_HILOGE("Failed to  get battery interface");
         pthread_mutex_unlock(&g_mutex);
         return NULL;
     }
