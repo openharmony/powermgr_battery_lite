@@ -60,10 +60,8 @@ BatteryFeatureApi *GetBatteryFeatureImpl(void)
 static int32_t FeatureInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
     if ((iProxy == NULL) || (origin == NULL) || (req == NULL)) {
-        // POWER_HILOGE("Invalid parameter");
         return EC_INVALID;
     }
-    // POWER_HILOGD("Running lock feature invoke function id: %d", funcId);
     return (funcId >= 0 && funcId < BATTERY_FUNCID_END) ? g_invokeFuncs[funcId](iProxy, origin, req, reply) :
         EC_FAILURE;
 }

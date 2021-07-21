@@ -48,6 +48,4 @@ int32_t GetBatTemperature();
 #ifdef __cplusplus
 }
 #endif // __cplusplus
-
-
 #endif

@@ -34,35 +34,28 @@ static IBattery g_ibattery;
 
 static const char *BATTERY_GetName(Service *service)
 {
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s begin",
-        //BATTERY_DEVICE, __func__);
     return BATTERY_DEVICE;
 }
 
 static BOOL Initialize(Service *service, Identity identity)
 {
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s begin", BATTERY_DEVICE, __func__);
     return TRUE;
 }
 
 
 static BOOL MessageHandle(Service *service, Request *msg)
 {
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s begin",
-        //BATTERY_DEVICE, __func__);
     return TRUE;
 }
 
 static TaskConfig GetTaskConfig(Service *service)
 {
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s begin", BATTERY_DEVICE, __func__);
     TaskConfig config = {LEVEL_HIGH, PRI_BELOW_NORMAL, TASK_CONFIG_STACK_SIZE, TASK_CONFIG_QUEUE_SIZE, SHARED_TASK};
     return config;
 }
 
 static int32_t Invoke(IServerProxy *iProxy, int funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s begin", BATTERY_DEVICE, __func__);
     return BATTERY_OK;
 }
 
@@ -112,34 +105,19 @@ int GetLedColorImpl(int* red, int* green, int* blue)
 }
 void ShutDownImpl()
 {
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s void ShutDownImpl()", 
-        //BATTERY_DEVICE, __func__);
 }
 void UpdateBatInfoImpl(BatInfo* battery)
 {
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s void UpdateBatInfoImpl(BatInfo* battery)", 
-        //BATTERY_DEVICE, __func__);
-    if(battery == NULL)
-    {
-        //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s void UpdateBatInfoImpl(BatInfo* battery):ERR", 
-        //BATTERY_DEVICE, __func__);
+    if(battery == NULL) {
         return;
     }
-    /** 电池电量 */
     battery->batSoc = battInfo.batSoc;
-    /** 电池电压 */
     battery->batVoltage = battInfo.batVoltage;
-    /** 电池温度 */
     battery->BatTemp = battInfo.BatTemp;
-    /** 电池容量 */
     battery->batCapacity = battInfo.batCapacity;
-    /** 充电状态 */
     battery->chargingStatus = battInfo.chargingStatus;
-    /** 连接类型 */
     battery->pluggedType = battInfo.pluggedType;
-    /** 电池类型 */
     strcpy(battery->BatTechnology, battInfo.BatTechnology);
-    /** 电池健康状态 */
     battery->healthStatus = battInfo.healthStatus;
 }
 
@@ -174,43 +152,24 @@ static void ChargingApiGet(void)
     }
     IUnknown *iUnknown = SAMGR_GetInstance()->GetDefaultFeatureApi(BATTERY_DEVICE);
     if (iUnknown == NULL) {
-        //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s BatteryDevice::ChargingApiGet iUnknown is null.",
-            //BATTERY_DEVICE, __func__);
         return;
     }
     int ret = iUnknown->QueryInterface(iUnknown, DEFAULT_VERSION, (void **)(&g_batteryFeatureHandle));
     if (ret != BATTERY_OK) {
-        //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s BatteryDevice::::ChargingApiGet api is null.",
-            //BATTERY_DEVICE, __func__);
         return;
     }
-
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s BatteryDevice::ChargingApiGet(void):start.",
-        //BATTERY_DEVICE, __func__);
 }
 
 static void Init(void)
 {
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s begin",
-        //BATTERY_DEVICE, __func__);
     BOOL result = SAMGR_GetInstance()->RegisterService((Service *)&g_batteryDevice);
     if (result == FALSE) {
-        //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s RegisterFeature failed.",
-        //BATTERY_DEVICE, __func__);
         return;
     }
     BOOL apiResult = SAMGR_GetInstance()->RegisterDefaultFeatureApi(BATTERY_DEVICE, GET_IUNKNOWN(g_batteryDevice));
     if (apiResult == FALSE) {
-        //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s RegisterFeatureApi failed",
-        //BATTERY_DEVICE, __func__);
         return;
     }
-
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s SAMGR_GetInstance()->RegisterFeature ok...",
-        //BATTERY_DEVICE, __func__);
-    //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s SAMGR_GetInstance()->RegisterDefaultFeatureApi ok...",
-        //BATTERY_DEVICE, __func__);
-
 }
 SYSEX_SERVICE_INIT(Init);
 
@@ -232,19 +191,14 @@ void GetBatteryDeviceMethods(IBattery *device)
      device->UpdateBatInfo = g_batteryFeatureHandle->UpdateBatInfo;
 }
 
-
-
 const IBattery *NewBatterInterfaceInstance(void)
 {
     if(g_batteryFeatureHandle == NULL) {
         ChargingApiGet();
         GetBatteryDeviceMethods(&g_ibattery);
     }
-     //HILOG_DEBUG(HILOG_MODULE_APP, "[SERVICE:%s]: %s NewBatterInterfaceInstance() ok...",
-        //BATTERY_DEVICE, __func__);
     return &g_ibattery;   
 }
-
 
 const int32 FreeBatterInterfaceInstance(void)
 {

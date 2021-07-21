@@ -48,31 +48,24 @@ static BatteryService *BatteryGetInstance(void);
 
 static BOOL Initialize(Service *service, Identity identity)
 {
-
-    // POWER_HILOGI("BatteryInitialize begin");
     BatteryService *batterService = BatteryGetInstance();
-    batterService->identity = identity;
-    
+    batterService->identity = identity;   
     BatteryFeatureTimeerInit();
     return TRUE;
 }
 
 static const char *BatteryGetName(Service *service)
 {
-    // POWER_HILOGI("BatteryGetName begin");
     return BATTERY_SERVICE;
 }
 
 void UpdateBatteryMsg(BatInfo* battery)
 {
-    // POWER_HILOGI("UpdateBatteryMsg() start.");
     g_batteryDevice = NewBatterInterfaceInstance();
     if (g_batteryDevice == NULL) {
-        // POWER_HILOGI("UpdateBatteryMsg() error.");
         return;
     }
     g_batteryDevice->UpdateBatInfo(battery);
-    // POWER_HILOGI("UpdateBatteryMsg():succeed");
     return;
 }
 
@@ -90,12 +83,10 @@ static BOOL MessageHandle(Service *service, Request *request)
         default:
             break;
     }
-    // POWER_HILOGI("BatteryMessageHandle begin");
     return true;
 }
 static TaskConfig GetTaskConfig(Service *service)
 {
-    // POWER_HILOGI("BatteryGetTaskConfig begin");
     TaskConfig config = {LEVEL_HIGH, PRI_BELOW_NORMAL, BATTERY_STACK_SIZE, BATTERY_QUEUE_SIZE, SHARED_TASK};
     return config;
 }
@@ -130,28 +121,19 @@ static void BatteryFeatureTimeerInit(void)
     {
         time_  =  PowerMgrCreateTimer(DEFAULT_INTERVAL_MSECS, DEFAULT_INTERVAL_MSECS , BatteryMonitorHandle);
         if (time_ == NULL) {
-            // POWER_HILOGI("BatteryFeatureTimeerInit failed.");
             return;
         }
         if (PowerMgrStartTimer(time_, NULL) == FALSE) {
-
-            // POWER_HILOGI("Failed to start timer.");
             return;
         }
-
-        // POWER_HILOGI("BatteryFeatureTimeerInit()...ok.");
     }
 }
 
 static void Init(void)
 {
-    // POWER_HILOGI("Succeed to init battery manager service begin");
     BOOL result = SAMGR_GetInstance()->RegisterService((Service *)&g_batteryService);
     if (result == FALSE) {
-        // POWER_HILOGI("RegisterService failed.");
         return;
     }
-    // POWER_HILOGI("Succeed to init battery manager service");
-    // POWER_HILOGI("Succeed to init battery manager service end");
 }
 SYSEX_SERVICE_INIT(Init);
