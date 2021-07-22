@@ -67,36 +67,59 @@ static int32_t FeatureInvoke(IServerProxy *iProxy, int32_t funcId, void *origin,
 
 static int32_t BatterySOCInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
+    if(iProxy == NULL){
+        return EC_FAILURE
+    }
+
     int32_t ret = BatterySOCImpl((IUnknown *)iProxy);
     IpcIoPushInt32(reply, ret);
     return EC_SUCCESS;
 }
 static int32_t ChargingStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
+    if(iProxy == NULL){
+        return EC_FAILURE
+    }
+
     BatteryChargeState status = ChargingStatusImpl((IUnknown *)iProxy);
     IpcIoPushInt32(reply, status);
     return EC_SUCCESS;
 }
 static int32_t HealthStatusInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
+    if(iProxy == NULL){
+        return EC_FAILURE
+    }
+
     BatteryHealthState status = HealthStatusImpl((IUnknown *)iProxy);
     IpcIoPushInt32(reply, status);
     return EC_SUCCESS;
 }
 static int32_t PluggedTypeInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
+    if(iProxy == NULL){
+        return EC_FAILURE
+    }
+
     BatteryPluggedType status = PluggedTypeImpl((IUnknown *)iProxy);
     IpcIoPushInt32(reply, status);
     return EC_SUCCESS;
 }
 static int32_t VoltageInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
+    if(iProxy == NULL){
+        return EC_FAILURE
+    }
+
     int32_t ret = VoltageImpl((IUnknown *)iProxy);
     IpcIoPushInt32(reply, ret);
     return EC_SUCCESS;
 }
 static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
+    if(iProxy == NULL){
+        return EC_FAILURE
+    }
 
     char *strBuff = TechnologyImpl((IUnknown *)iProxy);
     IpcIoPushString(reply, strBuff);
@@ -105,6 +128,10 @@ static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *orig
 }
 static int32_t BatteryTemperatureInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
+    if(iProxy == NULL){
+        return EC_FAILURE
+    }
+
     int32_t ret = BatteryTemperatureImpl((IUnknown*)iProxy);
     IpcIoPushInt32(reply, ret);
     return EC_SUCCESS;
