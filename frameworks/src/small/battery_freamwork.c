@@ -48,9 +48,13 @@ static int32_t BatteryCallbackInt(IOwner owner, int32_t code, IpcIo *reply)
 static int32_t GetBatSocProxy(IUnknown *iUnknown)
 {
     IpcIo request;
-    char buffer[MAX_DATA_LEN];
+    char buffer[MAX_DATA_LEN] = { 0 };
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
-    int32_t ret;
+    int32_t ret = 0;
+
+    if (iUnknown == NULL) {
+        return EC_INVALID;
+    }
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETSOC, &request, &ret, BatteryCallbackInt);
@@ -60,9 +64,13 @@ static int32_t GetBatSocProxy(IUnknown *iUnknown)
 static BatteryChargeState GetChargingStatusProxy(IUnknown *iUnknown)
 {
     IpcIo request;
-    char buffer[MAX_DATA_LEN];
+    char buffer[MAX_DATA_LEN] = { 0 };
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
-    int32_t ret;
+    int32_t ret = 0;
+
+    if (iUnknown == NULL) {
+        return EC_INVALID;
+    }
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETCHARGING, &request, &ret, BatteryCallbackInt);
@@ -72,9 +80,13 @@ static BatteryChargeState GetChargingStatusProxy(IUnknown *iUnknown)
 static BatteryHealthState GetHealthStatusProxy(IUnknown *iUnknown)
 {
     IpcIo request;
-    char buffer[MAX_DATA_LEN];
+    char buffer[MAX_DATA_LEN] = { 0 };
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
-    int32_t ret;
+    int32_t ret = 0;
+
+    if (iUnknown == NULL) {
+        return EC_INVALID;
+    }
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETHEALTH, &request, &ret, BatteryCallbackInt);
@@ -84,9 +96,13 @@ static BatteryHealthState GetHealthStatusProxy(IUnknown *iUnknown)
 static BatteryPluggedType GetPluggedTypeProxy(IUnknown *iUnknown)
 {
     IpcIo request;
-    char buffer[MAX_DATA_LEN];
+    char buffer[MAX_DATA_LEN] = { 0 };
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
-    int32_t ret;
+    int32_t ret = 0;
+
+    if (iUnknown == NULL) {
+        return EC_INVALID;
+    }
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETPLUGTYPE, &request, &ret, BatteryCallbackInt);
@@ -96,9 +112,13 @@ static BatteryPluggedType GetPluggedTypeProxy(IUnknown *iUnknown)
 static int32_t GetBatVoltageProxy(IUnknown *iUnknown)
 {
     IpcIo request;
-    char buffer[MAX_DATA_LEN];
+    char buffer[MAX_DATA_LEN] = { 0 };
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
-    int32_t ret;
+    int32_t ret = 0;
+
+    if (iUnknown == NULL) {
+        return EC_INVALID;
+    }
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETVOLTAGE, &request, &ret, BatteryCallbackInt);
@@ -126,9 +146,13 @@ static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
 static char* GetBatTechnologyProxy(IUnknown *iUnknown)
 {
     IpcIo request;
-    char buffer[MAX_DATA_LEN];
+    char buffer[MAX_DATA_LEN] = { 0 };
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
-    char* string;
+    char* string = NULL;
+
+    if (iUnknown == NULL) {
+        return EC_INVALID;
+    }
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETTECHNOLONY, &request, &string, BatteryCallbackBuff);
@@ -138,9 +162,13 @@ static char* GetBatTechnologyProxy(IUnknown *iUnknown)
 static int32_t GetBatTemperatureProxy(IUnknown *iUnknown)
 {
     IpcIo request;
-    char buffer[MAX_DATA_LEN];
+    char buffer[MAX_DATA_LEN] = { 0 };
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
-    int32_t ret;
+    int32_t ret = 0;
+
+    if (iUnknown == NULL) {
+        return EC_INVALID;
+    }
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;
     proxy->Invoke((IClientProxy *)proxy, BATTERY_FUNCID_GETTEMPERATURE, &request, &ret, BatteryCallbackInt);
