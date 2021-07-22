@@ -35,7 +35,6 @@ protected:
  * @tc.name: BatteryMgrInterfaceTest001
  * @tc.desc: Test the interface Battery::GetBatSoc.
  * @tc.type: FUNC
- * @tc.require: AR Number
  */
 HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest001, TestSize.Level0)
 {
@@ -48,7 +47,6 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest001, TestSize.Level0)
  * @tc.name: BatteryMgrInterfaceTest002
  * @tc.desc: Test the interface Battery::GetChargingStatus().
  * @tc.type: FUNC
- * @tc.require: AR Number
  */
 HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest002, TestSize.Level0)
 {
@@ -62,7 +60,6 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest002, TestSize.Level0)
  * @tc.name: BatteryMgrInterfaceTest003
  * @tc.desc: Test the interface Battery::GetHealthStatus().
  * @tc.type: FUNC
- * @tc.require: AR Number
  */
 HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest003, TestSize.Level0)
 {
@@ -76,7 +73,6 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest003, TestSize.Level0)
  * @tc.name: BatteryMgrInterfaceTest004
  * @tc.desc: Test the interface Battery::GetPluggedType
  * @tc.type: FUNC
- * @tc.require: AR Number
  */
 HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest004, TestSize.Level0)
 {
@@ -90,7 +86,6 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest004, TestSize.Level0)
  * @tc.name: BatteryMgrInterfaceTest005
  * @tc.desc: Test the interface Battery::GetBatVoltage
  * @tc.type: FUNC
- * @tc.require: xxxxxxx
  */
 HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest005, TestSize.Level0)
 {
@@ -104,7 +99,6 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest005, TestSize.Level0)
  * @tc.name: BatteryMgrInterfaceTest006
  * @tc.desc: Test the interface Battery::GetBatTemperature
  * @tc.type: FUNC
- * @tc.require: xxxxxxx
  */
 HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest006, TestSize.Level0)
 {
@@ -118,7 +112,6 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest006, TestSize.Level0)
  * @tc.name: BatteryMgrInterfaceTest007
  * @tc.desc: Test the interface Battery::GetBatTechnology
  * @tc.type: FUNC
- * @tc.require: xxxxxxx
  */
 HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest007, TestSize.Level0)
 {

@@ -58,13 +58,13 @@ int32_t BatteryTemperatureImpl(IUnknown *iUnknown);
     .OnMessage = OnFeatureMessage
 
 #define BATTERY_INTERFACE_IMPL                                      \
-    .GetBatSocFunc = BatterySOCImpl,                                  \
-    .GetChargingStatusFunc = ChargingStatusImpl,                      \
-    .GetHealthStatusFunc = HealthStatusImpl,                           \
-    .GetPluggedTypeFunc = PluggedTypeImpl,                            \
-    .GetBatVoltageFunc = VoltageImpl,                                 \
-    .GetBatTechnologyFunc = TechnologyImpl,                            \
-	.GetBatTemperatureFunc = BatteryTemperatureImpl
+    .GetBatSocFunc = BatterySOCImpl,                                \
+    .GetChargingStatusFunc = ChargingStatusImpl,                    \
+    .GetHealthStatusFunc = HealthStatusImpl,                        \
+    .GetPluggedTypeFunc = PluggedTypeImpl,                          \
+    .GetBatVoltageFunc = VoltageImpl,                               \
+    .GetBatTechnologyFunc = TechnologyImpl,                         \
+    .GetBatTemperatureFunc = BatteryTemperatureImpl
 
 BatteryFeatureApi *GetBatteryFeatureImpl(void);
 

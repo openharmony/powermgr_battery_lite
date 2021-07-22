@@ -178,7 +178,9 @@ static void *CreatClient(const char *service, const char *feature, uint32_t size
 
 static void DestroyClient(const char *service, const char *feature, void *iproxy)
 {
-    free(iproxy);
+    if (iproxy != NULL) {
+        free(iproxy);
+    }
 }
 
 static BatteryProxyInterface *GetBatteryInterface(void)

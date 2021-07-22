@@ -130,7 +130,7 @@ static void GInit()
 {
 
     BatteryFeatureApi *feature = GetBatteryFeatureImpl();
-    if(feature == NULL) {
+    if (feature == NULL) {
         return;
     }
 

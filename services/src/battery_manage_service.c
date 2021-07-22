@@ -16,17 +16,16 @@
 #include <ohos_init.h>
 #include <samgr_lite.h>
 #include <service.h>
-
 #include <unistd.h>
 #include <pthread.h>
 #include "iunknown.h"
+#include "iproxy_server.h"
+#include "feature.h"
 #include "ibattery.h"
 #include "battery_manage_feature.h"
 #include "battery_manage_service.h"
 #include "battery_mgr.h"
 #include "hilog_wrapper.h"
-#include "iproxy_server.h"
-#include "feature.h"
 #include "power_mgr_time_util.h"
 #include "power_mgr_timer_util.h"
 

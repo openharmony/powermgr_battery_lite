@@ -16,7 +16,7 @@
 #ifndef POWERMGR_HILOG_WRAPPER_H
 #define POWERMGR_HILOG_WRAPPER_H
 
-#define LOG_TAG                 "PowerMgr"
+#define LOG_TAG                 "BatteryMgr"
 
 #include <log.h>
 

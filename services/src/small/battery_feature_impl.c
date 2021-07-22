@@ -15,7 +15,6 @@
 
 #include <ohos_errno.h>
 #include <iproxy_server.h>
-
 #include <pthread.h>
 #include <unistd.h>
 
@@ -43,7 +42,7 @@ static BatteryFeatureApi g_feature = {
 };
 
 static InvokeFunc g_invokeFuncs[BATTERY_FUNCID_END] = {
-	BatterySOCInvoke,
+    BatterySOCInvoke,
     ChargingStatusInvoke,
     HealthStatusInvoke,
     PluggedTypeInvoke,
@@ -99,8 +98,8 @@ static int32_t VoltageInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, Ipc
 static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
 
-    char *strbuff = TechnologyImpl((IUnknown *)iProxy);
-    IpcIoPushString(reply,strbuff);
+    char *strBuff = TechnologyImpl((IUnknown *)iProxy);
+    IpcIoPushString(reply, strBuff);
 
     return EC_SUCCESS;
 }
