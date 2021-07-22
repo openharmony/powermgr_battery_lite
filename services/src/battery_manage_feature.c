@@ -74,7 +74,6 @@ BatteryHealthState HealthStatusImpl(IUnknown *iUnknown)
 {
     BatteryHealthState healthState = HEALTH_STATE_BUTT;
     g_batteryDevice = NewBatterInterfaceInstance();
-
     if (g_batteryDevice == NULL) {
         return healthState;
     }
@@ -85,7 +84,6 @@ BatteryPluggedType PluggedTypeImpl(IUnknown *iUnknown)
 {
     BatteryPluggedType pluggedType = PLUGGED_TYPE_BUTT;
     g_batteryDevice = NewBatterInterfaceInstance();
-
     if (g_batteryDevice == NULL) {
         return pluggedType;
     }
@@ -96,7 +94,6 @@ int32_t VoltageImpl(IUnknown *iUnknown)
 {
     int32_t voltage = BATT_INT_VALUE;
     g_batteryDevice = NewBatterInterfaceInstance();
-
     if (g_batteryDevice == NULL) {
         return voltage;
     }
@@ -107,7 +104,6 @@ char* TechnologyImpl(IUnknown *iUnknown)
 {
     char* technology = NULL;
     g_batteryDevice = NewBatterInterfaceInstance();
-
     if (g_batteryDevice == NULL) {
         return technology;
     }
