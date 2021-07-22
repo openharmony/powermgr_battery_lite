@@ -32,7 +32,6 @@ if (battery_mini_system) {
   local_deps += [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
     "//base/powermgr/battery_lite/frameworks/src/small:battery_impl",
-#    "//base/powermgr/battery_lite/frameworks/src/small:batteryclient_impl",
   ]
 }
 
