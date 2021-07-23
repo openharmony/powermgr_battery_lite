@@ -24,7 +24,7 @@
 typedef int32_t (*InvokeFunc)(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
 static int32_t FeatureInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply);
 
-static int32_t BatterySOCInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
+static int32_t BatterySocInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
 static int32_t ChargingStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
 static int32_t HealthStatusInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply);
 static int32_t PluggedTypeInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
@@ -42,7 +42,7 @@ static BatteryFeatureApi g_feature = {
 };
 
 static InvokeFunc g_invokeFuncs[BATTERY_FUNCID_END] = {
-    BatterySOCInvoke,
+    BatterySocInvoke,
     ChargingStatusInvoke,
     HealthStatusInvoke,
     PluggedTypeInvoke,
@@ -65,19 +65,19 @@ static int32_t FeatureInvoke(IServerProxy *iProxy, int32_t funcId, void *origin,
         EC_FAILURE;
 }
 
-static int32_t BatterySOCInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
+static int32_t BatterySocInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-    if(iProxy == NULL) {
+    if (iProxy == NULL) {
         return EC_FAILURE;
     }
 
-    int32_t ret = BatterySOCImpl((IUnknown *)iProxy);
+    int32_t ret = BatterySocImpl((IUnknown *)iProxy);
     IpcIoPushInt32(reply, ret);
     return EC_SUCCESS;
 }
 static int32_t ChargingStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-    if(iProxy == NULL) {
+    if (iProxy == NULL) {
         return EC_FAILURE;
     }
 
@@ -87,7 +87,7 @@ static int32_t ChargingStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *r
 }
 static int32_t HealthStatusInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
-    if(iProxy == NULL) {
+    if (iProxy == NULL) {
         return EC_FAILURE;
     }
 
@@ -97,7 +97,7 @@ static int32_t HealthStatusInvoke(IServerProxy *iProxy, int32_t funcId, void *or
 }
 static int32_t PluggedTypeInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-    if(iProxy == NULL) {
+    if (iProxy == NULL) {
         return EC_FAILURE;
     }
 
@@ -107,7 +107,7 @@ static int32_t PluggedTypeInvoke(IServerProxy *iProxy, void *origin, IpcIo *req,
 }
 static int32_t VoltageInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-    if(iProxy == NULL) {
+    if (iProxy == NULL) {
         return EC_FAILURE;
     }
 
@@ -117,7 +117,7 @@ static int32_t VoltageInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, Ipc
 }
 static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
-    if(iProxy == NULL) {
+    if (iProxy == NULL) {
         return EC_FAILURE;
     }
 
@@ -128,11 +128,12 @@ static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *orig
 }
 static int32_t BatteryTemperatureInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-    if(iProxy == NULL) {
+    int32_t ret;
+    if (iProxy == NULL) {
         return EC_FAILURE;
     }
 
-    int32_t ret = BatteryTemperatureImpl((IUnknown*)iProxy);
+    ret = BatteryTemperatureImpl((IUnknown*)iProxy);
     IpcIoPushInt32(reply, ret);
     return EC_SUCCESS;
 }

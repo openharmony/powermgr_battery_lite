@@ -48,7 +48,7 @@ BOOL OnFeatureMessage(Feature *feature, Request *request)
     return ((feature != NULL) && (request != NULL)) ? TRUE : FALSE;
 }
 
-int32_t BatterySOCImpl(IUnknown *iUnknown)
+int32_t BatterySocImpl(IUnknown *iUnknown)
 {
     int32_t soc = BATT_INT_VALUE;
     g_batteryDevice = NewBatterInterfaceInstance();

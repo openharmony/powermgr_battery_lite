@@ -42,7 +42,7 @@ void OnFeatureStop(Feature *feature, Identity identity);
 BOOL OnFeatureMessage(Feature *feature, Request *request);
 void OnFeatureInitialize(Feature *feature, Service *parent, Identity identity);
 
-int32_t BatterySOCImpl(IUnknown *iUnknown);
+int32_t BatterySocImpl(IUnknown *iUnknown);
 BatteryChargeState ChargingStatusImpl(IUnknown *iUnknown);
 BatteryHealthState HealthStatusImpl(IUnknown *iUnknown);
 BatteryPluggedType PluggedTypeImpl(IUnknown *iUnknown);
@@ -58,7 +58,7 @@ int32_t BatteryTemperatureImpl(IUnknown *iUnknown);
     .OnMessage = OnFeatureMessage
 
 #define BATTERY_INTERFACE_IMPL                                      \
-    .GetBatSocFunc = BatterySOCImpl,                                \
+    .GetBatSocFunc = BatterySocImpl,                                \
     .GetChargingStatusFunc = ChargingStatusImpl,                    \
     .GetHealthStatusFunc = HealthStatusImpl,                        \
     .GetPluggedTypeFunc = PluggedTypeImpl,                          \
