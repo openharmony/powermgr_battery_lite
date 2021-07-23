@@ -37,13 +37,13 @@ static  inline IUnknown *GetBatteryIUnknown(void)
     return iUnknown;
 }
 
-int32_t GetBatSoc();
-BatteryChargeState GetChargingStatus();
-BatteryHealthState GetHealthStatus();
-BatteryPluggedType GetPluggedType();
-int32_t GetBatVoltage();
-char* GetBatTechnology();
-int32_t GetBatTemperature();
+int32_t GetBatSoc(void);
+BatteryChargeState GetChargingStatus(void);
+BatteryHealthState GetHealthStatus(void);
+BatteryPluggedType GetPluggedType(void);
+int32_t GetBatVoltage(void);
+char* GetBatTechnology(void);
+int32_t GetBatTemperature(void);
 
 #ifdef __cplusplus
 }

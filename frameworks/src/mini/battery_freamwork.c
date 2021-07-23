@@ -46,7 +46,7 @@ static BatteryInterface *GetBatteryInterface(void)
     return g_intf;
 }
 
-int32_t GetBatSoc()
+int32_t GetBatSoc(void)
 {
     int32_t ret = EC_FAILURE;
     BatteryInterface *intf = GetBatteryInterface();
@@ -55,7 +55,7 @@ int32_t GetBatSoc()
     }
     return ret;
 }
-BatteryChargeState GetChargingStatus()
+BatteryChargeState GetChargingStatus(void)
 {
     BatteryChargeState state = CHARGE_STATE_NONE;
     BatteryInterface *intf = GetBatteryInterface();
@@ -64,7 +64,7 @@ BatteryChargeState GetChargingStatus()
     }
     return state;
 }
-BatteryHealthState GetHealthStatus()
+BatteryHealthState GetHealthStatus(void)
 {
     BatteryHealthState state = HEALTH_STATE_UNKNOWN;
     BatteryInterface *intf = GetBatteryInterface();
@@ -73,7 +73,7 @@ BatteryHealthState GetHealthStatus()
     }
     return state;
 }
-BatteryPluggedType GetPluggedType()
+BatteryPluggedType GetPluggedType(void)
 {
     BatteryPluggedType state = PLUGGED_TYPE_NONE;
     BatteryInterface *intf = GetBatteryInterface();
@@ -82,7 +82,7 @@ BatteryPluggedType GetPluggedType()
     }
     return state;
 }
-int32_t GetBatVoltage()
+int32_t GetBatVoltage(void)
 {
     int32_t ret = EC_FAILURE;
     BatteryInterface *intf = GetBatteryInterface();
@@ -92,7 +92,7 @@ int32_t GetBatVoltage()
     return ret;
 }
 
-char* GetBatTechnology()
+char* GetBatTechnology(void)
 {
     char* strBuff = NULL;
     BatteryInterface *intf = GetBatteryInterface();
@@ -101,7 +101,7 @@ char* GetBatTechnology()
     }
     return strBuff;
 }
-int32_t GetBatTemperature()
+int32_t GetBatTemperature(void)
 {
     int32_t ret = EC_FAILURE;
     BatteryInterface *intf = GetBatteryInterface();

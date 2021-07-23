@@ -71,8 +71,8 @@ static int32_t BatterySocInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, 
         return EC_FAILURE;
     }
 
-    int32_t ret = BatterySocImpl((IUnknown *)iProxy);
-    IpcIoPushInt32(reply, ret);
+    int32_t retSoc = BatterySocImpl((IUnknown *)iProxy);
+    IpcIoPushInt32(reply, retSoc);
     return EC_SUCCESS;
 }
 static int32_t ChargingStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
@@ -81,8 +81,8 @@ static int32_t ChargingStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *r
         return EC_FAILURE;
     }
 
-    BatteryChargeState status = ChargingStatusImpl((IUnknown *)iProxy);
-    IpcIoPushInt32(reply, status);
+    BatteryChargeState chargingStatus = ChargingStatusImpl((IUnknown *)iProxy);
+    IpcIoPushInt32(reply, chargingStatus);
     return EC_SUCCESS;
 }
 static int32_t HealthStatusInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
@@ -91,8 +91,8 @@ static int32_t HealthStatusInvoke(IServerProxy *iProxy, int32_t funcId, void *or
         return EC_FAILURE;
     }
 
-    BatteryHealthState status = HealthStatusImpl((IUnknown *)iProxy);
-    IpcIoPushInt32(reply, status);
+    BatteryHealthState healthStatus = HealthStatusImpl((IUnknown *)iProxy);
+    IpcIoPushInt32(reply, healthStatus);
     return EC_SUCCESS;
 }
 static int32_t PluggedTypeInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
@@ -111,8 +111,8 @@ static int32_t VoltageInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, Ipc
         return EC_FAILURE;
     }
 
-    int32_t ret = VoltageImpl((IUnknown *)iProxy);
-    IpcIoPushInt32(reply, ret);
+    int32_t retVoltage = VoltageImpl((IUnknown *)iProxy);
+    IpcIoPushInt32(reply, retVoltage);
     return EC_SUCCESS;
 }
 static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
@@ -128,12 +128,11 @@ static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *orig
 }
 static int32_t BatteryTemperatureInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
-    int32_t ret;
     if (iProxy == NULL) {
         return EC_FAILURE;
     }
 
-    ret = BatteryTemperatureImpl((IUnknown*)iProxy);
-    IpcIoPushInt32(reply, ret);
+    int32_t retTemperature = BatteryTemperatureImpl((IUnknown*)iProxy);
+    IpcIoPushInt32(reply, retTemperature);
     return EC_SUCCESS;
 }

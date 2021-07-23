@@ -57,31 +57,31 @@ static int32_t Invoke(IServerProxy *iProxy, int funcId, void *origin, IpcIo *req
     return BATTERY_OK;
 }
 
-uint32_t GetSocImpl()
+uint32_t GetSocImpl(void)
 {
     return battInfo.batSoc;
 }
-BatteryChargeState GetChargingStatusImpl()
+BatteryChargeState GetChargingStatusImpl(void)
 {
     return battInfo.chargingStatus;
 }
-BatteryHealthState GetHealthStatusImpl()
+BatteryHealthState GetHealthStatusImpl(void)
 {
     return battInfo.healthStatus;
 }
-BatteryPluggedType GetPluggedTypeImpl()
+BatteryPluggedType GetPluggedTypeImpl(void)
 {
     return battInfo.pluggedType;
 }
-uint32_t GetVoltageImpl()
+uint32_t GetVoltageImpl(void)
 {
     return battInfo.batVoltage;
 }
-char* GetTechnologyImpl()
+char* GetTechnologyImpl(void)
 {
     return battInfo.BatTechnology;
 }
-uint32_t GetTemperatureImpl()
+uint32_t GetTemperatureImpl(void)
 {
     return battInfo.BatTemp;
 }
@@ -89,7 +89,7 @@ int TurnOnLedImpl(int red, int green, int blue)
 {
     return BATTERY_OK;
 }
-int TurnOffLedImpl()
+int TurnOffLedImpl(void)
 {
     return BATTERY_OK;
 }
@@ -101,7 +101,7 @@ int GetLedColorImpl(int* red, int* green, int* blue)
 {
     return BATTERY_OK;
 }
-void ShutDownImpl()
+void ShutDownImpl(void)
 {
 }
 void UpdateBatInfoImpl(BatInfo* battery)
