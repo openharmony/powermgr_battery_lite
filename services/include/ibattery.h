@@ -65,5 +65,5 @@ uint32_t FreeBatterInterfaceInstance(void);
 
 #ifdef __cplusplus
 }
-#endif
+#endif // __cplusplus
 #endif // IBATTERY_SRV_H

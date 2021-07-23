@@ -70,5 +70,5 @@ BatteryFeatureApi *GetBatteryFeatureImpl(void);
 
 #ifdef __cplusplus
 }
-#endif
+#endif // __cplusplus
 #endif // BATTERY_MANAGE_FEATURE_H

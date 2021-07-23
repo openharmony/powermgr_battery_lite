@@ -28,10 +28,8 @@
 
 
 #ifdef __cplusplus
-#if __cplusplus
 extern "C" {
-#endif
-#endif
+#endif // __cplusplus
 
 #define BATTERY_DEVICE "battery_device"
 #define BATTERY_FEATURE "battery_feature"
@@ -69,8 +67,6 @@ typedef struct BatteryDevice {
 } BatteryDevice;
 
 #ifdef __cplusplus
-#if __cplusplus
 }
-#endif
-#endif
+#endif // __cplusplus
 #endif // BATTERY_SRV_CLIENT_H

@@ -52,7 +52,6 @@ int32_t BatterySOCImpl(IUnknown *iUnknown)
 {
     int32_t soc = BATT_INT_VALUE;
     g_batteryDevice = NewBatterInterfaceInstance();
-
     if (g_batteryDevice == NULL) {
         return soc;
     }
@@ -63,7 +62,6 @@ BatteryChargeState ChargingStatusImpl(IUnknown *iUnknown)
 {
     BatteryChargeState chargingstate = CHARGE_STATE_BUTT;
     g_batteryDevice = NewBatterInterfaceInstance();
-
     if (g_batteryDevice == NULL) {
         return chargingstate;
     }
@@ -124,7 +122,6 @@ int32_t BatteryTemperatureImpl(IUnknown *iUnknown)
 
 static void GInit()
 {
-
     BatteryFeatureApi *feature = GetBatteryFeatureImpl();
     if (feature == NULL) {
         return;

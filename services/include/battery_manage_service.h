@@ -34,5 +34,5 @@ typedef struct BatteryService {
 
 #ifdef __cplusplus
 }
-#endif
+#endif // __cplusplus
 #endif // BATTERY_MANAGE_SERVICE_H

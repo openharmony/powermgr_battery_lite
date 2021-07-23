@@ -48,4 +48,4 @@ int32_t GetBatTemperature();
 #ifdef __cplusplus
 }
 #endif // __cplusplus
-#endif
+#endif // BATTERY_FRAMEWORK_H

@@ -30,5 +30,5 @@ typedef struct {
 
 #ifdef __cplusplus
 }
-#endif
-#endif
+#endif // __cplusplus
+#endif // BATTERY_INTERFACE
