@@ -16,25 +16,20 @@
 #ifndef BATTERY_DEVICE_H
 #define BATTERY_DEVICE_H
 
-
-#include <iproxy_server.h>
-
-#include <pthread.h>
-
-#include "feature.h"
-#include <iunknown.h>
-#include <log.h>
-#include "samgr_lite.h"
 #include "ohos_init.h"
+#include "samgr_lite.h"
 #include "service.h"
+#include "feature.h"
+#include <iproxy_server.h>
+#include <iunknown.h>
+#include <pthread.h>
+#include <log.h>
 #include "ibattery.h"
 
 
 #ifdef __cplusplus
-#if __cplusplus
 extern "C" {
-#endif
-#endif
+#endif // __cplusplus
 
 #define BATTERY_DEVICE "battery_device"
 #define BATTERY_FEATURE "battery_feature"
@@ -50,18 +45,18 @@ extern "C" {
 
 typedef struct BatteeryDeviceFeatureApi {
     INHERIT_SERVER_IPROXY;
-    uint16 (*GetSoc)();
-    BatteryChargeState (*GetChargingStatus)();
-    BatteryHealthState (*GetHealthStatus)();
-    BatteryPluggedType (*GetPluggedType)();
-    uint16 (*GetVoltage)();
-    char* (*GetTechnology)();
-    uint16 (*GetTemperature)();
+    uint32_t (*GetSoc)(void);
+    BatteryChargeState (*GetChargingStatus)(void);
+    BatteryHealthState (*GetHealthStatus)(void);
+    BatteryPluggedType (*GetPluggedType)(void);
+    uint32_t (*GetVoltage)(void);
+    char* (*GetTechnology)(void);
+    uint32_t (*GetTemperature)(void);
     int (*TurnOnLed)(int red, int green, int blue);
-    int (*TurnOffLed)();
+    int (*TurnOffLed)(void);
     int (*SetLedColor)(int red, int green, int blue);
     int (*GetLedColor)(int* red, int* green, int* blue);
-    void (*ShutDown)();
+    void (*ShutDown)(void);
     void (*UpdateBatInfo)(BatInfo*);
 } BatteeryDeviceFeatureApi;
 
@@ -72,13 +67,6 @@ typedef struct BatteryDevice {
 } BatteryDevice;
 
 #ifdef __cplusplus
-#if __cplusplus
 }
-#endif
-#endif
-
-
-
-
-
+#endif // __cplusplus
 #endif // BATTERY_SRV_CLIENT_H

@@ -21,6 +21,7 @@
 #include "iproxy_server.h"
 #include "service.h"
 #include "hilog_wrapper.h"
+#include "battery_interface.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,5 +34,5 @@ typedef struct BatteryService {
 
 #ifdef __cplusplus
 }
-#endif
+#endif // __cplusplus
 #endif // BATTERY_MANAGE_SERVICE_H

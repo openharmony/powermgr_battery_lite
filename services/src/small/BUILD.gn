@@ -14,13 +14,12 @@
 import("//base/powermgr/battery_lite/batterymgr.gni")
 import("//build/lite/config/component/lite_component.gni")
 
-
-source_set("battery_impl") {
+source_set("battery_featrue_impl") {
   cflags = [ "-fPIC" ]
   cflags_cc = cflags
 
-  sources = [ 
-      "battery_freamwork.c",
+  sources = [
+    "battery_feature_impl.c",
   ]
 
   include_dirs = [
@@ -28,25 +27,8 @@ source_set("battery_impl") {
     "${batterymgr_frameworks_path}/include/${battery_system_type}",
     "${batterymgr_services_path}/include",
     "${batterymgr_services_path}/include/${battery_system_type}",
+    "${batterymgr_kits_path}",
   ]
 
   deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
 }
-
-#source_set("batteryclient_impl") {
-#  cflags = [ "-fPIC" ]
-#  cflags_cc = cflags
-#
-#  sources = [ 
-#      "battery_client.cpp",
-#  ]
-#
-#  include_dirs = [
-#    "${batterymgr_frameworks_path}/include",
-#    "${batterymgr_frameworks_path}/include/${battery_system_type}",
-#    "${batterymgr_services_path}/include",
-#    "${batterymgr_services_path}/include/${battery_system_type}",
-#  ]
-#
-#  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
-#}

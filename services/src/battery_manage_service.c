@@ -16,17 +16,16 @@
 #include <ohos_init.h>
 #include <samgr_lite.h>
 #include <service.h>
-
 #include <unistd.h>
 #include <pthread.h>
 #include "iunknown.h"
+#include "iproxy_server.h"
+#include "feature.h"
 #include "ibattery.h"
 #include "battery_manage_feature.h"
 #include "battery_manage_service.h"
 #include "battery_mgr.h"
 #include "hilog_wrapper.h"
-#include "iproxy_server.h"
-#include "feature.h"
 #include "power_mgr_time_util.h"
 #include "power_mgr_timer_util.h"
 
@@ -46,42 +45,26 @@ static BatInfo battpoint;
 static void BatteryFeatureTimeerInit(void);
 static BatteryService *BatteryGetInstance(void);
 
-
 static BOOL Initialize(Service *service, Identity identity)
 {
-
-    POWER_HILOGI("BatteryInitialize begin");
     BatteryService *batterService = BatteryGetInstance();
-    batterService->identity = identity;
-    
+    batterService->identity = identity;   
     BatteryFeatureTimeerInit();
     return TRUE;
 }
 
 static const char *BatteryGetName(Service *service)
 {
-    POWER_HILOGI("BatteryGetName begin");
     return BATTERY_SERVICE;
 }
 
 void UpdateBatteryMsg(BatInfo* battery)
 {
-    POWER_HILOGI("UpdateBatteryMsg() start.");
     g_batteryDevice = NewBatterInterfaceInstance();
     if (g_batteryDevice == NULL) {
-        POWER_HILOGI("UpdateBatteryMsg() error.");
         return;
     }
     g_batteryDevice->UpdateBatInfo(battery);
-
-    POWER_HILOGI("UpdateBatteryMsg():batSoc = %d ok." ,battery->batSoc);
-    POWER_HILOGI("UpdateBatteryMsg():batVoltage = %d ok." ,battery->batVoltage);
-    POWER_HILOGI("UpdateBatteryMsg():BatTemp = %d ok." ,battery->BatTemp);
-    POWER_HILOGI("UpdateBatteryMsg():batCapacity = %d ok." ,battery->batCapacity);
-    POWER_HILOGI("UpdateBatteryMsg():chargingStatus = %d ok." ,battery->chargingStatus);
-    POWER_HILOGI("UpdateBatteryMsg():pluggedType = %d ok." ,battery->pluggedType);
-    POWER_HILOGI("UpdateBatteryMsg():BatTechnology = %s ok." ,battery->BatTechnology);
-    POWER_HILOGI("UpdateBatteryMsg():healthStatus = %d ok." ,battery->healthStatus);
     return;
 }
 
@@ -99,13 +82,10 @@ static BOOL MessageHandle(Service *service, Request *request)
         default:
             break;
     }
-    POWER_HILOGI("BatteryMessageHandle begin");
     return true;
-
 }
 static TaskConfig GetTaskConfig(Service *service)
 {
-    POWER_HILOGI("BatteryGetTaskConfig begin");
     TaskConfig config = {LEVEL_HIGH, PRI_BELOW_NORMAL, BATTERY_STACK_SIZE, BATTERY_QUEUE_SIZE, SHARED_TASK};
     return config;
 }
@@ -132,7 +112,6 @@ void BatteryMonitorHandle(void *arg)
         .msgValue = 0
     };
     SAMGR_SendRequest(&(g_batteryService.identity),&request,NULL);
-    //POWER_HILOGI("BatteryMonitorHandle()...ok.");
 }
 
 static void BatteryFeatureTimeerInit(void)
@@ -141,29 +120,19 @@ static void BatteryFeatureTimeerInit(void)
     {
         time_  =  PowerMgrCreateTimer(DEFAULT_INTERVAL_MSECS, DEFAULT_INTERVAL_MSECS , BatteryMonitorHandle);
         if (time_ == NULL) {
-            //HiLog::Debug(LABEL, "BatteryFeatureTimeerInit failed.");
-            POWER_HILOGI("BatteryFeatureTimeerInit failed.");
             return;
         }
         if (PowerMgrStartTimer(time_, NULL) == FALSE) {
-            //HiLog::Debug(LABEL, "Failed to start timer.");
-            POWER_HILOGI("Failed to start timer.");
             return;
         }
-        //HiLog::Debug(LABEL, "BatteryFeatureTimeerInit(void)...ok.");
-        POWER_HILOGI("BatteryFeatureTimeerInit()...ok.");
     }
 }
 
 static void Init(void)
 {
-    POWER_HILOGI("Succeed to init battery manager service begin");
     BOOL result = SAMGR_GetInstance()->RegisterService((Service *)&g_batteryService);
     if (result == FALSE) {
-        POWER_HILOGI("RegisterService failed.");
         return;
     }
-    POWER_HILOGI("Succeed to init battery manager service");
-    POWER_HILOGI("Succeed to init battery manager service end");
 }
 SYSEX_SERVICE_INIT(Init);

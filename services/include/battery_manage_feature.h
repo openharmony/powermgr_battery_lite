@@ -15,13 +15,14 @@
 
 #ifndef BATTERY_MANAGE_FEATURE_H
 #define BATTERY_MANAGE_FEATURE_H
-#include "battery_info.h"
+
 #include "feature.h"
-#include "iproxy_server.h"
 #include "message.h"
-#include "battery_mgr.h"
 #include "service.h"    
 #include "ibattery.h"
+#include "battery_info.h"
+#include "battery_mgr.h"
+#include "battery_interface.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,24 +30,45 @@ extern "C" {
 
 static IBattery *g_batteryDevice = NULL;
 
-typedef struct BatteryInterface {
-    INHERIT_IUNKNOWN;
-    uint16 (*BatterySOC)();
-    BatteryChargeState (*ChargingStatus)();
-    BatteryHealthState (*HealthStatus)();
-    BatteryPluggedType (*PluggedType)();
-    uint16 (*Voltage)();
-    char* (*Technology)();
-    uint16 (*BatteryTemperature)();
-} BatteryInterface;
-
 typedef struct {
     INHERIT_FEATURE;
     INHERIT_IUNKNOWNENTRY(BatteryInterface);
     Identity identity_;
-} BatteryServiceApi;
+} BatteryFeatureApi;
+
+
+const char *GetFeatureName(Feature *feature);
+void OnFeatureStop(Feature *feature, Identity identity);
+BOOL OnFeatureMessage(Feature *feature, Request *request);
+void OnFeatureInitialize(Feature *feature, Service *parent, Identity identity);
+
+int32_t BatterySocImpl(IUnknown *iUnknown);
+BatteryChargeState ChargingStatusImpl(IUnknown *iUnknown);
+BatteryHealthState HealthStatusImpl(IUnknown *iUnknown);
+BatteryPluggedType PluggedTypeImpl(IUnknown *iUnknown);
+int32_t VoltageImpl(IUnknown *iUnknown);
+char* TechnologyImpl(IUnknown *iUnknown);
+
+int32_t BatteryTemperatureImpl(IUnknown *iUnknown);
+
+#define BATTERY_FEATURE_INTERFACE_IMPL                              \
+    .GetName = GetFeatureName,                                      \
+    .OnInitialize = OnFeatureInitialize,                            \
+    .OnStop = OnFeatureStop,                                        \
+    .OnMessage = OnFeatureMessage
+
+#define BATTERY_INTERFACE_IMPL                                      \
+    .GetBatSocFunc = BatterySocImpl,                                \
+    .GetChargingStatusFunc = ChargingStatusImpl,                    \
+    .GetHealthStatusFunc = HealthStatusImpl,                        \
+    .GetPluggedTypeFunc = PluggedTypeImpl,                          \
+    .GetBatVoltageFunc = VoltageImpl,                               \
+    .GetBatTechnologyFunc = TechnologyImpl,                         \
+    .GetBatTemperatureFunc = BatteryTemperatureImpl
+
+BatteryFeatureApi *GetBatteryFeatureImpl(void);
 
 #ifdef __cplusplus
 }
-#endif
+#endif // __cplusplus
 #endif // BATTERY_MANAGE_FEATURE_H
