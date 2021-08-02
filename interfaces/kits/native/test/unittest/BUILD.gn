@@ -15,15 +15,15 @@ unittest("battery_lite_test_interface") {
   sources = [ "src/batterymgr_interfaces_test.cpp" ]
 
   include_dirs = [
-    "//base/sensors/sensor_lite/interfaces/kits/native/include",
     "//base/hiviewdfx/hilog_lite/interfaces/native/kits",
     "//third_party/bounds_checking_function/include",
+    "//base/powermgr/battery_lite/interfaces/kits",
     "//base/powermgr/battery_lite/frameworks/include",
   ]
   deps = [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
     "//base/powermgr/battery_lite/frameworks:batterymgr",
-    "//foundation/distributedschedule/samgr_lite/samgr:samgr"
+    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
   ]
 }
 

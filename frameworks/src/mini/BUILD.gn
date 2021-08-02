@@ -18,6 +18,7 @@ static_library("battery_impl") {
   sources = [ "battery_freamwork.c" ]
 
   include_dirs = [
+    "${batterymgr_kits_path}",
     "${batterymgr_frameworks_path}/include",
     "${batterymgr_services_path}/include",
     "${batterymgr_frameworks_path}/include/${battery_system_type}",
