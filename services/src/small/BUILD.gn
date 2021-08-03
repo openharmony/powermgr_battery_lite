@@ -23,6 +23,7 @@ source_set("battery_featrue_impl") {
   ]
 
   include_dirs = [
+    "${batterymgr_kits_path}",
     "${batterymgr_frameworks_path}/include",
     "${batterymgr_frameworks_path}/include/${battery_system_type}",
     "${batterymgr_services_path}/include",

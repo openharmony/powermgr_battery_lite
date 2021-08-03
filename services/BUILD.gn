@@ -52,11 +52,11 @@ lite_library("batteryservice") {
 
   include_dirs = [
     "include",
+    "${batterymgr_kits_path}",
     "${batterymgr_frameworks_path}/include",
     "${batterymgr_frameworks_path}/include/${battery_system_type}",
     "${batterymgr_services_path}/include",
     "${batterymgr_services_path}/include/${battery_system_type}",
-    "${batterymgr_kits_path}",
     "//utils/native/lite/include",
     "//foundation/distributedschedule/samgr_lite/interfaces/kits/samgr",
     "//foundation/communication/ipc_lite/interfaces/kits",
