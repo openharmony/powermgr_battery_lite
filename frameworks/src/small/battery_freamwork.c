@@ -151,7 +151,7 @@ static char* GetBatTechnologyProxy(IUnknown *iUnknown)
     char* string = NULL;
 
     if (iUnknown == NULL) {
-        return EC_INVALID;
+        return string;
     }
 
     BatteryProxyInterface *proxy = (BatteryProxyInterface *)iUnknown;

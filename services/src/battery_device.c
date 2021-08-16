@@ -115,7 +115,7 @@ void UpdateBatInfoImpl(BatInfo* battery)
     battery->batCapacity = battInfo.batCapacity;
     battery->chargingStatus = battInfo.chargingStatus;
     battery->pluggedType = battInfo.pluggedType;
-    strcpy(battery->BatTechnology, battInfo.BatTechnology);
+    strcpy_s(battery->BatTechnology, strlen(battery->BatTechnology), battInfo.BatTechnology);
     battery->healthStatus = battInfo.healthStatus;
 }
 
