@@ -29,7 +29,8 @@ static BatInfo battInfo = {
 };
 
 static BatteeryDeviceFeatureApi *g_batteryFeatureHandle = NULL;
-static IBattery g_ibattery;
+static IBattery g_device;
+static IBattery *g_ibattery = NULL;
 
 static const char *BATTERY_GetName(Service *service)
 {
@@ -57,7 +58,7 @@ static int32_t Invoke(IServerProxy *iProxy, int funcId, void *origin, IpcIo *req
     return BATTERY_OK;
 }
 
-uint32_t GetSocImpl(void)
+int32_t GetSocImpl(void)
 {
     return battInfo.batSoc;
 }
@@ -73,15 +74,15 @@ BatteryPluggedType GetPluggedTypeImpl(void)
 {
     return battInfo.pluggedType;
 }
-uint32_t GetVoltageImpl(void)
+int32_t GetVoltageImpl(void)
 {
     return battInfo.batVoltage;
 }
-char* GetTechnologyImpl(void)
+char *GetTechnologyImpl(void)
 {
     return battInfo.BatTechnology;
 }
-uint32_t GetTemperatureImpl(void)
+int32_t GetTemperatureImpl(void)
 {
     return battInfo.BatTemp;
 }
@@ -97,16 +98,19 @@ int SetLedColorImpl(int red, int green, int blue)
 {
     return BATTERY_OK;
 }
-int GetLedColorImpl(int* red, int* green, int* blue)
+int GetLedColorImpl(int *red, int *green, int *blue)
 {
     return BATTERY_OK;
 }
 void ShutDownImpl(void)
 {
 }
-void UpdateBatInfoImpl(BatInfo* battery)
+void UpdateBatInfoImpl(BatInfo *battery)
 {
     if (battery == NULL) {
+        return;
+    }
+    if (strcpy_s(battery->BatTechnology, BATTECHNOLOGY_LEN, battInfo.BatTechnology) != EOF) {
         return;
     }
     battery->batSoc = battInfo.batSoc;
@@ -115,7 +119,6 @@ void UpdateBatInfoImpl(BatInfo* battery)
     battery->batCapacity = battInfo.batCapacity;
     battery->chargingStatus = battInfo.chargingStatus;
     battery->pluggedType = battInfo.pluggedType;
-    (void *)strcpy_s(battery->BatTechnology, BATTECHNOLOGY_LEN, battInfo.BatTechnology);
     battery->healthStatus = battInfo.healthStatus;
 }
 
@@ -141,7 +144,6 @@ static BatteryDevice g_batteryDevice = {
     .UpdateBatInfo = UpdateBatInfoImpl,
     IPROXY_END,
 };
-
 
 static void ChargingApiGet(void)
 {
@@ -172,33 +174,41 @@ static void Init(void)
 SYSEX_SERVICE_INIT(Init);
 
 
-void GetBatteryDeviceMethods(IBattery *device)
+static IBattery *GetBatteryDeviceMethods(void)
 {
-     device->GetSoc = g_batteryFeatureHandle->GetSoc;
-     device->GetChargingStatus = g_batteryFeatureHandle->GetChargingStatus;
-     device->GetHealthStatus = g_batteryFeatureHandle->GetHealthStatus;
-     device->GetPluggedType = g_batteryFeatureHandle->GetPluggedType;
-     device->GetVoltage = g_batteryFeatureHandle->GetVoltage;
-     device->GetTechnology = g_batteryFeatureHandle->GetTechnology;
-     device->GetTemperature = g_batteryFeatureHandle->GetTemperature;
-     device->TurnOnLed = g_batteryFeatureHandle->TurnOnLed;
-     device->TurnOffLed = g_batteryFeatureHandle->TurnOffLed;
-     device->SetLedColor = g_batteryFeatureHandle->SetLedColor;
-     device->GetLedColor = g_batteryFeatureHandle->GetLedColor;
-     device->ShutDown = g_batteryFeatureHandle->ShutDown;
-     device->UpdateBatInfo = g_batteryFeatureHandle->UpdateBatInfo;
+    if (g_batteryFeatureHandle == NULL) {
+        return NULL;
+    }
+    g_device.GetSoc = g_batteryFeatureHandle->GetSoc;
+    g_device.GetChargingStatus = g_batteryFeatureHandle->GetChargingStatus;
+    g_device.GetHealthStatus = g_batteryFeatureHandle->GetHealthStatus;
+    g_device.GetPluggedType = g_batteryFeatureHandle->GetPluggedType;
+    g_device.GetVoltage = g_batteryFeatureHandle->GetVoltage;
+    g_device.GetTechnology = g_batteryFeatureHandle->GetTechnology;
+    g_device.GetTemperature = g_batteryFeatureHandle->GetTemperature;
+    g_device.TurnOnLed = g_batteryFeatureHandle->TurnOnLed;
+    g_device.TurnOffLed = g_batteryFeatureHandle->TurnOffLed;
+    g_device.SetLedColor = g_batteryFeatureHandle->SetLedColor;
+    g_device.GetLedColor = g_batteryFeatureHandle->GetLedColor;
+    g_device.ShutDown = g_batteryFeatureHandle->ShutDown;
+    g_device.UpdateBatInfo = g_batteryFeatureHandle->UpdateBatInfo;
+    return &g_device;
 }
 
 IBattery *NewBatterInterfaceInstance(void)
 {
-    if(g_batteryFeatureHandle == NULL) {
+    if (g_batteryFeatureHandle == NULL) {
         ChargingApiGet();
-        GetBatteryDeviceMethods(&g_ibattery);
     }
-    return &g_ibattery;   
+
+    g_ibattery = GetBatteryDeviceMethods();
+    if (g_ibattery == NULL) {
+        return NULL;
+    }
+    return g_ibattery;
 }
 
-uint32_t FreeBatterInterfaceInstance(void)
+int32_t FreeBatterInterfaceInstance(void)
 {
     return 0;
 }

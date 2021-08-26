@@ -45,17 +45,17 @@ extern "C" {
 
 typedef struct BatteeryDeviceFeatureApi {
     INHERIT_SERVER_IPROXY;
-    uint32_t (*GetSoc)(void);
+    int32_t (*GetSoc)(void);
     BatteryChargeState (*GetChargingStatus)(void);
     BatteryHealthState (*GetHealthStatus)(void);
     BatteryPluggedType (*GetPluggedType)(void);
-    uint32_t (*GetVoltage)(void);
+    int32_t (*GetVoltage)(void);
     char* (*GetTechnology)(void);
-    uint32_t (*GetTemperature)(void);
+    int32_t (*GetTemperature)(void);
     int (*TurnOnLed)(int red, int green, int blue);
     int (*TurnOffLed)(void);
     int (*SetLedColor)(int red, int green, int blue);
-    int (*GetLedColor)(int* red, int* green, int* blue);
+    int (*GetLedColor)(int *red, int *green, int *blue);
     void (*ShutDown)(void);
     void (*UpdateBatInfo)(BatInfo*);
 } BatteeryDeviceFeatureApi;

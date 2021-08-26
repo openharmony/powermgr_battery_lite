@@ -25,13 +25,13 @@ extern "C" {
 
 typedef struct {
     /** 电池电量 */
-    uint32_t batSoc;
+    int32_t batSoc;
     /** 电池电压 */
-    uint32_t batVoltage;
+    int32_t batVoltage;
     /** 电池温度 */
-    uint32_t BatTemp;
+    int32_t BatTemp;
     /** 电池容量 */
-    uint32_t batCapacity;
+    int32_t batCapacity;
     /** 充电状态 */
     BatteryChargeState chargingStatus;
     /** 连接类型 */
@@ -44,13 +44,13 @@ typedef struct {
 
 typedef struct IBattery {
 
-    uint32_t (*GetSoc)();
+    int32_t (*GetSoc)();
     BatteryChargeState (*GetChargingStatus)();
     BatteryHealthState (*GetHealthStatus)();
     BatteryPluggedType (*GetPluggedType)();
-    uint32_t (*GetVoltage)();
+    int32_t (*GetVoltage)();
     char* (*GetTechnology)();
-    uint32_t (*GetTemperature)();
+    int32_t (*GetTemperature)();
     int (*TurnOnLed)(int red, int green, int blue);
     int (*TurnOffLed)();
     int (*SetLedColor)(int red, int green, int blue);
@@ -61,7 +61,7 @@ typedef struct IBattery {
 } IBattery;
 
 IBattery *NewBatterInterfaceInstance(void);
-uint32_t FreeBatterInterfaceInstance(void);
+int32_t FreeBatterInterfaceInstance(void);
 
 #ifdef __cplusplus
 }
