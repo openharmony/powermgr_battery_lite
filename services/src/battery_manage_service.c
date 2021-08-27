@@ -111,14 +111,13 @@ void BatteryMonitorHandle(void *arg)
         .len = 0,
         .msgValue = 0
     };
-    SAMGR_SendRequest(&(g_batteryService.identity),&request,NULL);
+    SAMGR_SendRequest(&(g_batteryService.identity), &request, NULL);
 }
 
 static void BatteryFeatureTimeerInit(void)
 {
-    if( time_ == NULL )
-    {
-        time_  =  PowerMgrCreateTimer(DEFAULT_INTERVAL_MSECS, DEFAULT_INTERVAL_MSECS , BatteryMonitorHandle);
+    if (time_ == NULL){
+        time_  =  PowerMgrCreateTimer(DEFAULT_INTERVAL_MSECS, DEFAULT_INTERVAL_MSECS, BatteryMonitorHandle);
         if (time_ == NULL) {
             return;
         }

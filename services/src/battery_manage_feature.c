@@ -112,7 +112,6 @@ int32_t BatteryTemperatureImpl(IUnknown *iUnknown)
 {
     int32_t temperature = BATT_INT_VALUE;
     g_batteryDevice = NewBatterInterfaceInstance();
-
     if (g_batteryDevice == NULL) {
         return temperature;
     }
