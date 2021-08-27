@@ -14,7 +14,6 @@
  */
 
 #include <iunknown.h>
-
 #include "battery_manage_feature.h"
 
 static BatteryFeatureApi g_feature = {

@@ -14,10 +14,8 @@
  */
 
 #include <feature.h>
-#include <ohos_init.h>
 #include <samgr_lite.h>
 #include "ibattery.h"
-#include "hilog_wrapper.h"
 #include "battery_manage_feature.h"
 #include "battery_device.h"
 

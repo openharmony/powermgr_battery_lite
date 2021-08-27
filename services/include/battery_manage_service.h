@@ -15,6 +15,7 @@
 
 #ifndef BATTERY_MANAGE_SERVICE_H
 #define BATTERY_MANAGE_SERVICE_H
+
 #include <feature.h>
 #include "battery_info.h"
 #include "iunknown.h"
