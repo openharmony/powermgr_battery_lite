@@ -14,10 +14,8 @@
  */
 
 #include <feature.h>
-#include <ohos_init.h>
 #include <samgr_lite.h>
 #include "ibattery.h"
-#include "hilog_wrapper.h"
 #include "battery_manage_feature.h"
 #include "battery_device.h"
 
@@ -112,7 +110,6 @@ int32_t BatteryTemperatureImpl(IUnknown *iUnknown)
 {
     int32_t temperature = BATT_INT_VALUE;
     g_batteryDevice = NewBatterInterfaceInstance();
-
     if (g_batteryDevice == NULL) {
         return temperature;
     }

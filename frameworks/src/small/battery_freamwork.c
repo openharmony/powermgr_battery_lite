@@ -14,15 +14,11 @@
  */
 
 #include <stdint.h>
-#include <stdlib.h>
-#include <ohos_errno.h>
 #include <pthread.h>
-#include <unistd.h>
 #include "iunknown.h"
 #include "battery_framework.h"
 #include "battery_info.h"
 #include "battery_interface.h"
-#include "hilog_wrapper.h"
 #include "ibattery.h"
 
 #define MAX_DATA_LEN    1024

@@ -13,12 +13,7 @@
  * limitations under the License.
  */
 
-#include <ohos_errno.h>
 #include <iproxy_server.h>
-#include <pthread.h>
-#include <unistd.h>
-
-#include "hilog_wrapper.h"
 #include "battery_manage_feature.h"
 
 typedef int32_t (*InvokeFunc)(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);

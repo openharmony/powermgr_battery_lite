@@ -43,7 +43,6 @@ typedef struct {
 } BatInfo;
 
 typedef struct IBattery {
-
     int32_t (*GetSoc)();
     BatteryChargeState (*GetChargingStatus)();
     BatteryHealthState (*GetHealthStatus)();
@@ -57,7 +56,6 @@ typedef struct IBattery {
     int (*GetLedColor)(int* red, int* green, int* blue);
     void (*ShutDown)();
     void (*UpdateBatInfo)(BatInfo*);
-
 } IBattery;
 
 IBattery *NewBatterInterfaceInstance(void);

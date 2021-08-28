@@ -12,12 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-#include <stdint.h>
-#include <pthread.h>
+ 
 #include "ibattery.h"
 #include "iunknown.h"
-#include "hilog_wrapper.h"
 #include "battery_info.h"
 #include "battery_interface.h"
 #include "battery_framework.h"

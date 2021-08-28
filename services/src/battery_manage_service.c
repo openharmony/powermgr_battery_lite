@@ -16,8 +16,6 @@
 #include <ohos_init.h>
 #include <samgr_lite.h>
 #include <service.h>
-#include <unistd.h>
-#include <pthread.h>
 #include "iunknown.h"
 #include "iproxy_server.h"
 #include "feature.h"
@@ -25,7 +23,6 @@
 #include "battery_manage_feature.h"
 #include "battery_manage_service.h"
 #include "battery_mgr.h"
-#include "hilog_wrapper.h"
 #include "power_mgr_time_util.h"
 #include "power_mgr_timer_util.h"
 
@@ -111,14 +108,13 @@ void BatteryMonitorHandle(void *arg)
         .len = 0,
         .msgValue = 0
     };
-    SAMGR_SendRequest(&(g_batteryService.identity),&request,NULL);
+    SAMGR_SendRequest(&(g_batteryService.identity), &request, NULL);
 }
 
 static void BatteryFeatureTimeerInit(void)
 {
-    if( time_ == NULL )
-    {
-        time_  =  PowerMgrCreateTimer(DEFAULT_INTERVAL_MSECS, DEFAULT_INTERVAL_MSECS , BatteryMonitorHandle);
+    if (time_ == NULL) {
+        time_  =  PowerMgrCreateTimer(DEFAULT_INTERVAL_MSECS, DEFAULT_INTERVAL_MSECS, BatteryMonitorHandle);
         if (time_ == NULL) {
             return;
         }
