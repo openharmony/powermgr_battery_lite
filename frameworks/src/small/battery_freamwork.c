@@ -132,7 +132,7 @@ static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
 
     char **strBuff = (char **)owner;
     *strBuff = IpcIoPopString(reply, &len);
-    if (strBuff == NULL || len == 0) {
+    if (*strBuff == NULL || len == 0) {
         return EC_INVALID;
     }
 
