@@ -177,7 +177,7 @@ static void *CreatClient(const char *service, const char *feature, uint32_t size
     (void)service;
     (void)feature;
     uint32_t len = size + sizeof(BatteryProxyEntry);
-    uint8_t *client = malloc(len);
+    uint8_t *client = (uint8_t *)malloc(len);
     if (client == NULL) {
         return NULL;
     }
