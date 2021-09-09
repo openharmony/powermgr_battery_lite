@@ -15,7 +15,7 @@
 
 import("//build/lite/config/subsystem/aafwk/path.gni")
 
-shared_library("libnativeapi_battery_simulator") {
+shared_library("ace_kit_battery") {
   sources = [ 
     "src/battery_impl.c",
     "src/battery_module.cpp",

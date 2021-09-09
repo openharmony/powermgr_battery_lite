@@ -15,6 +15,7 @@
 
 #include "battery_module.h"
 #include "battery_impl.h"
+#include "hilog_wrapper.h"
 
 namespace OHOS {
 namespace ACELite {
@@ -48,9 +49,45 @@ static char *g_healthState[] = {
 */
 
 
+void SuccessCallBack(const JSIValue thisVal, const JSIValue args, JSIValue jsiValue)
+{
+    if (JSI::ValueIsUndefined(args)) {
+        return;
+    }
+    JSIValue success = JSI::GetNamedProperty(args, CB_SUCCESS);
+    JSIValue complete = JSI::GetNamedProperty(args, CB_COMPLETE);
+    if (!JSI::ValueIsUndefined(success)) {
+        if (JSI::ValueIsUndefined(jsiValue)) {
+            JSI::CallFunction(success, thisVal, nullptr, 0);
+        } else {
+            JSI::CallFunction(success, thisVal, &jsiValue, ARGC_ONE);
+        }
+    }
+    if (!JSI::ValueIsUndefined(complete)) {
+        JSI::CallFunction(complete, thisVal, nullptr, 0);
+    }
+    JSI::ReleaseValueList(success, complete, ARGS_END);
+}
+
+
+
 static JSIValue BatterySOC(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
-    return JSI::CreateNumber(GetChargingStatusImpl());
+    JSIValue undefValue = JSI::CreateUndefined();
+    if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
+        return undefValue;
+    }
+
+    int32_t batterysoc = 0;
+    batterysoc = GetBatSocImpl();
+    JSIValue result = JSI::CreateObject();
+    JSI::SetNumberProperty(result, "batterysoc", batterysoc);
+    SuccessCallBack(thisVal, args[0], result);
+    JSI::ReleaseValue(result);
+    return undefValue;
+
+
+    //return JSI::CreateNumber(GetChargingStatusImpl());
 }
 /*
 static JSIValue GetChargingState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
@@ -110,10 +147,10 @@ static JSIValue GetBatteryTemperature(const JSIValue thisVal, const JSIValue* ar
 {
     return JSI::CreateNumber(GetBatTemperatureImpl());
 }
-*/
+
 void InitBatteryModule(JSIValue exports)
 {
-    JSI::SetModuleAPI(exports, "getStatus", BatteryModule::BatterySOC);
+    POWER_HILOGE("InitBatteryModule start");
     JSI::SetModuleAPI(exports, "batterySOC", BatteryModule::BatterySOC);
     JSI::SetModuleAPI(exports, "chargingStatus", BatteryModule::GetChargingState);
     JSI::SetModuleAPI(exports, "healthStatus", BatteryModule::GetHealthState);
@@ -121,6 +158,7 @@ void InitBatteryModule(JSIValue exports)
     JSI::SetModuleAPI(exports, "voltage", BatteryModule::GetVoltage);
     JSI::SetModuleAPI(exports, "technology", BatteryModule::GetTechnology);
     JSI::SetModuleAPI(exports, "batteryTemperature", BatteryModule::GetBatteryTemperature);
+    POWER_HILOGE("InitBatteryModule end");
 }
 
 }

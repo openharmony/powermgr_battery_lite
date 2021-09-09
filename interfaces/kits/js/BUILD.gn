@@ -15,8 +15,8 @@
 
 import("//build/lite/config/component/lite_component.gni")
 
-lite_component("battery_utils_kits") {
+lite_component("ace_battery_kits") {
   features = [
-    "builtin:libnativeapi_battery_simulator",
+    "builtin:ace_kit_battery",
   ]
 }

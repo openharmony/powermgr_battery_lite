@@ -45,6 +45,7 @@ typedef enum {
     * The bottom of the enum.
     */
     CHARGE_STATE_BUTT
+
 } BatteryChargeState;
 
 /**
@@ -85,6 +86,7 @@ typedef enum {
     * The bottom of the enum.
     */
     HEALTH_STATE_BUTT
+
 } BatteryHealthState;
 
 /**
@@ -115,6 +117,7 @@ typedef enum {
     * The bottom of the enum.
     */
     PLUGGED_TYPE_BUTT
+
 } BatteryPluggedType;
 
 int32_t GetBatSoc(void);
