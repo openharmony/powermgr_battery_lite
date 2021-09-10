@@ -1,0 +1,2 @@
+./bm set -s disable
+./bm install -p entry-debug-lite-unsigned.hap
