@@ -17,21 +17,22 @@
 #define BATTERY_MODULE_H
 
 #include "jsi/jsi.h"
+#include <stdint.h>
+
 namespace OHOS {
 namespace ACELite {
 class BatteryModule {
 public:
     BatteryModule() = default;
     ~BatteryModule() = default;
-    static JSIValue BatterySOC(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
+    static JSIValue GetBatterySOC(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
     static JSIValue GetChargingState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
     static JSIValue GetHealthState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
     static JSIValue GetPluggedType(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
     static JSIValue GetVoltage(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
     static JSIValue GetTechnology(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
-    static JSIValue GetBatteryTemperature(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
+    static JSIValue GetTemperature(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
 };
-void InitBatteryModule(JSIValue exports);
 }
 }
 

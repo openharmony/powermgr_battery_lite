@@ -14,46 +14,117 @@
  */
 
 export interface BatterySocResponse {
-  /**
-   * Whether the battery is being charged
-   */
-  batterysoc: number;
+
+    batterySoc: number;
 }
 
 export interface GetBatterySOC {
-  /**
-   * Called when the current charging state and battery level are obtained.
-   */
-  success?: (data: BatterySocResponse) => void;
-  /**
-   * Called when the current charging state and battery level fail to be obtained.
-   */
+
+    success?: (data: BatterySocResponse) => void;
+
+    fail?: (data: string, code: number) => void;
+
+    complete?: () => void;
+}
+
+export interface BatteryChargingStatusResponse {
+
+  chargingStatus: number;
+}
+
+export interface GetChargingStatus {
+   success?: (data: BatteryChargingStatusResponse) => void;
+
+   fail?: (data: string, code: number) => void;
+
+   complete?: () => void;
+}
+
+export interface BatteryHealthStatusResponse {
+
+  healthStatus: number;
+}
+
+export interface GetHealthStatus {
+
+   success?: (data: BatteryHealthStatusResponse) => void;
+
+   fail?: (data: string, code: number) => void;
+
+   complete?: () => void;
+}
+
+export interface BatteryGetPluggedTypeResponse {
+
+  pluggedType: number;
+}
+
+export interface GetPluggedType {
+
+  success?: (data: BatteryGetPluggedTypeResponse) => void;
+
   fail?: (data: string, code: number) => void;
-  /**
-   * Called when the execution is completed
-   */
+
   complete?: () => void;
 }
 
+export interface BatteryGetVoltageResponse {
+
+  voltage: number;
+}
+
+export interface GetVoltage {
+
+  success?: (data: BatteryGetVoltageResponse) => void;
+
+  fail?: (data: string, code: number) => void;
+
+  complete?: () => void;
+}
+
+export interface BatteryTechnologyResponse {
+
+  technology: string;
+}
+
+export interface GetTechnology {
+
+  success?: (data: BatteryTechnologyResponse) => void;
+
+  fail?: (data: string, code: number) => void;
+
+  complete?: () => void;
+}
+
+export interface BatteryTemperatureResponse {
+
+  temperature: number;
+}
+
+export interface GetTemperature {
+
+  success?: (data: BatteryTemperatureResponse) => void;
+
+  fail?: (data: string, code: number) => void;
+
+  complete?: () => void;
+}
 /**
  * @Syscap SysCap.ACE.UIEngineLite
  */
 export default class battery {
-  /**
-   * Obtains the current charging state and battery level.
-   * @param options Options.
-   */
-  static batterySOC(options?: GetBatterySOC): void;
+
+  static BatterySOC(options?: GetBatterySOC): void;
   
-  //static chargingStatus(options?: GetStatusOptions): void;
+  static ChargingStatus(options?: GetChargingStatus): void;
   
-  //static healthStatus(options?: GetStatusOptions): void;
+  static HealthStatus(options?: GetHealthStatus): void;
   
-  //static pluggedType(options?: GetStatusOptions): void;
+  static PluggedType(options?: GetPluggedType): void;
   
-  //static voltage(options?: GetStatusOptions): void;
+  static Voltage(options?: GetVoltage): void;
   
-  //static technology(options?: GetStatusOptions): void;
+  static Technology(options?: GetTechnology): void;
   
-  //static batteryTemperature(options?: GetStatusOptions): void;
+  static Temperature(options?: GetTemperature): void;
 }

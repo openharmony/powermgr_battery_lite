@@ -21,34 +21,6 @@ namespace OHOS {
 namespace ACELite {
 namespace {
 
-/*
-static char *g_chargingState[] = {
-    "CHARGE_STATE_NONE", 
-    "CHARGE_STATE_ENABLE", 
-    "CHARGE_STATE_DISABLE", 
-    "CHARGE_STATE_FULL",
-    "CHARGE_STATE_BUTT"
-};
-
-static char *g_pluggedType[] = {
-    "PLUGGED_TYPE_NONE", 
-    "PLUGGED_TYPE_AC", 
-    "PLUGGED_TYPE_USB", 
-    "PLUGGED_TYPE_WIRELESS",
-    "CHARGE_STATE_BUTT"
-};
-static char *g_healthState[] = {
-    "HEALTH_STATE_UNKNOWN", 
-    "HEALTH_STATE_GOOD", 
-    "HEALTH_STATE_OVERHEAT", 
-    "HEALTH_STATE_OVERVOLTAGE", 
-    "HEALTH_STATE_COLD", 
-    "HEALTH_STATE_DEAD",
-    "CHARGE_STATE_BUTT"
-};  
-*/
-
-
 void SuccessCallBack(const JSIValue thisVal, const JSIValue args, JSIValue jsiValue)
 {
     if (JSI::ValueIsUndefined(args)) {
@@ -68,99 +40,132 @@ void SuccessCallBack(const JSIValue thisVal, const JSIValue args, JSIValue jsiVa
     }
     JSI::ReleaseValueList(success, complete, ARGS_END);
 }
+}
 
-
-
-static JSIValue BatterySOC(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetBatterySOC(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
+    int32_t batterySoc = 0;
     if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
         return undefValue;
     }
 
-    int32_t batterysoc = 0;
-    batterysoc = GetBatSocImpl();
+    batterySoc = GetBatSocImpl();
     JSIValue result = JSI::CreateObject();
-    JSI::SetNumberProperty(result, "batterysoc", batterysoc);
+    JSI::SetNumberProperty(result, "batterySoc", batterySoc);
     SuccessCallBack(thisVal, args[0], result);
     JSI::ReleaseValue(result);
     return undefValue;
-
-
-    //return JSI::CreateNumber(GetChargingStatusImpl());
-}
-/*
-static JSIValue GetChargingState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
-{
-    int32_t value = GetChargingStatusImpl();
-    return (value < BatteryChargeState::CHARGE_STATE_NONE 
-    || value > BatteryChargeState::CHARGE_STATE_BUTT) ? JSI::CreateUndefined() : JSI::CreateString(g_chargingState[value]);
-}
-*/
-static JSIValue GetChargingState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
-{
-    int32_t value = GetChargingStatusImpl();
-    return (value < BatteryChargeState::CHARGE_STATE_NONE 
-    || value > BatteryChargeState::CHARGE_STATE_BUTT) ? JSI::CreateUndefined() : JSI::CreateNumber(GetChargingStatusImpl());
-}
-/*
-static JSIValue GetHealthState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
-{
-    int32_t value = GetHealthStatusImpl();
-    return (value < BatteryHealthState::HEALTH_STATE_UNKNOWN 
-    || value > BatteryHealthState::HEALTH_STATE_BUTT) ? JSI::CreateUndefined() : JSI::CreateString(g_healthState[value]);
-}
-*/
-static JSIValue GetHealthState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
-{
-    int32_t value = GetHealthStatusImpl();
-    return (value < BatteryHealthState::HEALTH_STATE_UNKNOWN 
-    || value > BatteryHealthState::HEALTH_STATE_BUTT) ? JSI::CreateUndefined() : JSI::CreateNumber(GetHealthStatusImpl());
-}
-/*
-static JSIValue GetPluggedType(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
-{
-    int32_t value = GetPluggedTypeImpl();
-    return (value < BatteryPluggedType::PLUGGED_TYPE_NONE 
-    || value > BatteryPluggedType::PLUGGED_TYPE_BUTT) ? JSI::CreateUndefined() : JSI::CreateString(g_pluggedType[value]);
-    //return JSI::CreateNumber(GetPluggedTypeImpl());
-}
-*/
-static JSIValue GetPluggedType(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
-{
-    int32_t value = GetPluggedTypeImpl();
-    return (value < BatteryPluggedType::PLUGGED_TYPE_NONE 
-    || value > BatteryPluggedType::PLUGGED_TYPE_BUTT) ? JSI::CreateUndefined() : JSI::CreateNumber(GetPluggedTypeImpl());
 }
 
+JSIValue BatteryModule::GetChargingState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+{
+    JSIValue undefValue = JSI::CreateUndefined();
+    int32_t chargingStatus = 0;
+    if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
+        return undefValue;
+    }
 
-static JSIValue GetVoltage(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
-{
-    return JSI::CreateNumber(GetBatVoltageImpl());
+    chargingStatus = GetChargingStatusImpl();
+    JSIValue result = JSI::CreateObject();
+    JSI::SetNumberProperty(result, "chargingStatus", chargingStatus);
+    SuccessCallBack(thisVal, args[0], result);
+    JSI::ReleaseValue(result);
+    return undefValue;
 }
-static JSIValue GetTechnology(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+
+JSIValue BatteryModule::GetHealthState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
-    char *src = GetBatTechnologyImpl();
-    return (src == NULL) ? JSI::CreateUndefined() : JSI::CreateString(src);
+    JSIValue undefValue = JSI::CreateUndefined();
+    int32_t healthStatus = 0;
+    if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
+        return undefValue;
+    }
+
+    healthStatus = GetHealthStatusImpl();
+    JSIValue result = JSI::CreateObject();
+    JSI::SetNumberProperty(result, "healthStatus", healthStatus);
+    SuccessCallBack(thisVal, args[0], result);
+    JSI::ReleaseValue(result);
+    return undefValue;
 }
-static JSIValue GetBatteryTemperature(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+
+JSIValue BatteryModule::GetPluggedType(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
-    return JSI::CreateNumber(GetBatTemperatureImpl());
+    JSIValue undefValue = JSI::CreateUndefined();
+    int32_t pluggedType = 0;
+    if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
+        return undefValue;
+    }
+
+    pluggedType = GetPluggedTypeImpl();
+    JSIValue result = JSI::CreateObject();
+    JSI::SetNumberProperty(result, "pluggedType", pluggedType);
+    SuccessCallBack(thisVal, args[0], result);
+    JSI::ReleaseValue(result);
+    return undefValue;
+}
+
+
+JSIValue BatteryModule::GetVoltage(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+{
+    JSIValue undefValue = JSI::CreateUndefined();
+    int32_t voltage = 0;
+    if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
+        return undefValue;
+    }
+
+    voltage = GetBatVoltageImpl();
+    JSIValue result = JSI::CreateObject();
+    JSI::SetNumberProperty(result, "voltage", voltage);
+    SuccessCallBack(thisVal, args[0], result);
+    JSI::ReleaseValue(result);
+    return undefValue;
+}
+
+JSIValue BatteryModule::GetTechnology(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+{
+    JSIValue undefValue = JSI::CreateUndefined();
+    char* technology = NULL;
+    if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
+        return undefValue;
+    }
+
+    technology = GetBatTechnologyImpl();
+    JSIValue result = JSI::CreateObject();
+    JSI::SetStringProperty(result, "technology", technology);
+    SuccessCallBack(thisVal, args[0], result);
+    JSI::ReleaseValue(result);
+    return undefValue;
+}
+
+JSIValue BatteryModule::GetTemperature(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+{
+    JSIValue undefValue = JSI::CreateUndefined();
+    int32_t temperature = 0;
+    if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
+        return undefValue;
+    }
+
+    temperature = GetBatTemperature();
+    JSIValue result = JSI::CreateObject();
+    JSI::SetNumberProperty(result, "temperature", temperature);
+    SuccessCallBack(thisVal, args[0], result);
+    JSI::ReleaseValue(result);
+    return undefValue;
 }
 
 void InitBatteryModule(JSIValue exports)
 {
     POWER_HILOGE("InitBatteryModule start");
-    JSI::SetModuleAPI(exports, "batterySOC", BatteryModule::BatterySOC);
-    JSI::SetModuleAPI(exports, "chargingStatus", BatteryModule::GetChargingState);
-    JSI::SetModuleAPI(exports, "healthStatus", BatteryModule::GetHealthState);
-    JSI::SetModuleAPI(exports, "pluggedType", BatteryModule::GetPluggedType);
-    JSI::SetModuleAPI(exports, "voltage", BatteryModule::GetVoltage);
-    JSI::SetModuleAPI(exports, "technology", BatteryModule::GetTechnology);
-    JSI::SetModuleAPI(exports, "batteryTemperature", BatteryModule::GetBatteryTemperature);
+    JSI::SetModuleAPI(exports, "BatterySOC", BatteryModule::GetBatterySOC);
+    JSI::SetModuleAPI(exports, "ChargingState", BatteryModule::GetChargingState);
+    JSI::SetModuleAPI(exports, "HealthState", BatteryModule::GetHealthState);
+    JSI::SetModuleAPI(exports, "PluggedType", BatteryModule::GetPluggedType);
+    JSI::SetModuleAPI(exports, "Voltage", BatteryModule::GetVoltage);
+    JSI::SetModuleAPI(exports, "Technology", BatteryModule::GetTechnology);
+    JSI::SetModuleAPI(exports, "Temperature", BatteryModule::GetTemperature);
     POWER_HILOGE("InitBatteryModule end");
-}
-
 }
 } // ACELite
 } // OHOS
