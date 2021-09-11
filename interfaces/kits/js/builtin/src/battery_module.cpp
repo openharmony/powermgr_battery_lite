@@ -125,7 +125,7 @@ JSIValue BatteryModule::GetVoltage(const JSIValue thisVal, const JSIValue *args,
 JSIValue BatteryModule::GetTechnology(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
-    char* technology = NULL;
+    char *technology = NULL;
     if ((args == nullptr) || (argsNum == 0) || JSI::ValueIsUndefined(args[0])) {
         return undefValue;
     }

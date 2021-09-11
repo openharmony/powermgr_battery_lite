@@ -16,8 +16,8 @@
 #ifndef BATTERY_MODULE_H
 #define BATTERY_MODULE_H
 
-#include "jsi/jsi.h"
 #include <stdint.h>
+#include "jsi/jsi.h"
 
 namespace OHOS {
 namespace ACELite {
