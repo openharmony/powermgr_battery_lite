@@ -58,7 +58,7 @@ JSIValue BatteryModule::GetBatterySOC(const JSIValue thisVal, const JSIValue* ar
     return undefValue;
 }
 
-JSIValue BatteryModule::GetChargingState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetChargingStatus(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     int32_t chargingStatus = 0;
@@ -74,7 +74,7 @@ JSIValue BatteryModule::GetChargingState(const JSIValue thisVal, const JSIValue*
     return undefValue;
 }
 
-JSIValue BatteryModule::GetHealthState(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetHealthStatus(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     int32_t healthStatus = 0;
@@ -159,8 +159,8 @@ void InitBatteryModule(JSIValue exports)
 {
     POWER_HILOGE("InitBatteryModule start");
     JSI::SetModuleAPI(exports, "BatterySOC", BatteryModule::GetBatterySOC);
-    JSI::SetModuleAPI(exports, "ChargingState", BatteryModule::GetChargingState);
-    JSI::SetModuleAPI(exports, "HealthState", BatteryModule::GetHealthState);
+    JSI::SetModuleAPI(exports, "ChargingStatus", BatteryModule::GetChargingStatus);
+    JSI::SetModuleAPI(exports, "HealthStatus", BatteryModule::GetHealthStatus);
     JSI::SetModuleAPI(exports, "PluggedType", BatteryModule::GetPluggedType);
     JSI::SetModuleAPI(exports, "Voltage", BatteryModule::GetVoltage);
     JSI::SetModuleAPI(exports, "Technology", BatteryModule::GetTechnology);

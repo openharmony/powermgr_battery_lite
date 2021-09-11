@@ -16,7 +16,5 @@
 import("//build/lite/config/component/lite_component.gni")
 
 lite_component("ace_battery_kits") {
-  features = [
-    "builtin:ace_kit_battery",
-  ]
+  features = [ "builtin:ace_kit_battery" ]
 }

@@ -16,7 +16,7 @@
 import("//build/lite/config/subsystem/aafwk/path.gni")
 
 shared_library("ace_kit_battery") {
-  sources = [ 
+  sources = [
     "src/battery_impl.c",
     "src/battery_module.cpp",
   ]
@@ -34,9 +34,9 @@ shared_library("ace_kit_battery") {
     "//base/powermgr/battery_lite/interfaces/kits",
     "//base/powermgr/battery_lite/frameworks/include",
   ]
-  deps = [ 
-    "//third_party/bounds_checking_function:libsec_shared",
+  deps = [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
     "//base/powermgr/battery_lite/frameworks:batterymgr",
+    "//third_party/bounds_checking_function:libsec_shared",
   ]
 }
