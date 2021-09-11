@@ -20,7 +20,6 @@
 namespace OHOS {
 namespace ACELite {
 namespace {
-
 void SuccessCallBack(const JSIValue thisVal, const JSIValue args, JSIValue jsiValue)
 {
     if (JSI::ValueIsUndefined(args)) {

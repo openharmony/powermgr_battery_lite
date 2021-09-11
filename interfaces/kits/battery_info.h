@@ -43,9 +43,6 @@ typedef enum {
     CHARGE_STATE_BUTT
 } BatteryChargeState;
 
-/**
- * Type for acquire BatteryHealthState.
- */
 typedef enum {
     /**
      * Health Status: unknown.
@@ -77,9 +74,6 @@ typedef enum {
     HEALTH_STATE_BUTT
 } BatteryHealthState;
 
-/**
- * Type for acquire BatteryPluggedType.
- */
 typedef enum {
     /**
      * Power source is unplugged.
