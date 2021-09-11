@@ -42,7 +42,7 @@ void SuccessCallBack(const JSIValue thisVal, const JSIValue args, JSIValue jsiVa
 }
 }
 
-JSIValue BatteryModule::GetBatterySOC(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetBatterySOC(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     int32_t batterySoc = 0;
@@ -58,7 +58,7 @@ JSIValue BatteryModule::GetBatterySOC(const JSIValue thisVal, const JSIValue* ar
     return undefValue;
 }
 
-JSIValue BatteryModule::GetChargingStatus(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetChargingStatus(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     int32_t chargingStatus = 0;
@@ -74,7 +74,7 @@ JSIValue BatteryModule::GetChargingStatus(const JSIValue thisVal, const JSIValue
     return undefValue;
 }
 
-JSIValue BatteryModule::GetHealthStatus(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetHealthStatus(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     int32_t healthStatus = 0;
@@ -90,7 +90,7 @@ JSIValue BatteryModule::GetHealthStatus(const JSIValue thisVal, const JSIValue* 
     return undefValue;
 }
 
-JSIValue BatteryModule::GetPluggedType(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetPluggedType(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     int32_t pluggedType = 0;
@@ -107,7 +107,7 @@ JSIValue BatteryModule::GetPluggedType(const JSIValue thisVal, const JSIValue* a
 }
 
 
-JSIValue BatteryModule::GetVoltage(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetVoltage(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     int32_t voltage = 0;
@@ -123,7 +123,7 @@ JSIValue BatteryModule::GetVoltage(const JSIValue thisVal, const JSIValue* args,
     return undefValue;
 }
 
-JSIValue BatteryModule::GetTechnology(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetTechnology(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     char* technology = NULL;
@@ -139,7 +139,7 @@ JSIValue BatteryModule::GetTechnology(const JSIValue thisVal, const JSIValue* ar
     return undefValue;
 }
 
-JSIValue BatteryModule::GetTemperature(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
+JSIValue BatteryModule::GetTemperature(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
     int32_t temperature = 0;

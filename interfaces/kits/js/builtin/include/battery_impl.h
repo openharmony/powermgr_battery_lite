@@ -29,7 +29,7 @@ BatteryChargeState GetChargingStatusImpl(void);
 BatteryHealthState GetHealthStatusImpl(void);
 BatteryPluggedType GetPluggedTypeImpl(void);
 int32_t GetBatVoltageImpl(void);
-char* GetBatTechnologyImpl(void);
+char *GetBatTechnologyImpl(void);
 int32_t GetBatTemperatureImpl(void);
 
 

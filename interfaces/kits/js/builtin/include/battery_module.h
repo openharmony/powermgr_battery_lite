@@ -25,13 +25,13 @@ class BatteryModule {
 public:
     BatteryModule() = default;
     ~BatteryModule() = default;
-    static JSIValue GetBatterySOC(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
-    static JSIValue GetChargingStatus(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
-    static JSIValue GetHealthStatus(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
-    static JSIValue GetPluggedType(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
-    static JSIValue GetVoltage(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
-    static JSIValue GetTechnology(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
-    static JSIValue GetTemperature(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
+    static JSIValue GetBatterySOC(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum);
+    static JSIValue GetChargingStatus(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum);
+    static JSIValue GetHealthStatus(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum);
+    static JSIValue GetPluggedType(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum);
+    static JSIValue GetVoltage(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum);
+    static JSIValue GetTechnology(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum);
+    static JSIValue GetTemperature(const JSIValue thisVal, const JSIValue *args, uint8_t argsNum);
 };
 }
 }

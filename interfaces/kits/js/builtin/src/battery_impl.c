@@ -37,7 +37,7 @@ int32_t GetBatVoltageImpl(void)
 {
     return GetBatVoltage();
 }
-char* GetBatTechnologyImpl(void)
+char *GetBatTechnologyImpl(void)
 {
     return GetBatTechnology();
 }
