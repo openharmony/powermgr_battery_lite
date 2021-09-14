@@ -25,92 +25,72 @@ typedef enum {
      * Battery is discharge.
      */
     CHARGE_STATE_NONE,
-
     /**
      * Battery is charging.
      */
     CHARGE_STATE_ENABLE,
-
     /**
      * Battery is not charging.
      */
     CHARGE_STATE_DISABLE,
-
     /**
      * Battery charge full.
      */
     CHARGE_STATE_FULL,
-
     /**
     * The bottom of the enum.
     */
     CHARGE_STATE_BUTT
 } BatteryChargeState;
 
-/**
- * Type for acquire BatteryHealthState.
- */
 typedef enum {
     /**
      * Health Status: unknown.
      */
     HEALTH_STATE_UNKNOWN,
-
     /**
      * Health Status: good.
      */
     HEALTH_STATE_GOOD,
-
     /**
      * Health Status: over heat.
      */
     HEALTH_STATE_OVERHEAT,
-
     /**
      * Health Status: over voltage.
      */
     HEALTH_STATE_OVERVOLTAGE,
-
     /**
      * Health Status: COLD.
      */
     HEALTH_STATE_COLD,
-
     /**
      * Health Status: Dead.
      */
     HEALTH_STATE_DEAD,
-
     /**
     * The bottom of the enum.
     */
     HEALTH_STATE_BUTT
 } BatteryHealthState;
 
-/**
- * Type for acquire BatteryPluggedType.
- */
 typedef enum {
     /**
      * Power source is unplugged.
      */
     PLUGGED_TYPE_NONE,
-
     /**
      * Power source is an AC charger.
      */
     PLUGGED_TYPE_AC,
-
     /**
      * Power source is a USB DC charger.
      */
     PLUGGED_TYPE_USB,
-
     /**
      * Power source is wireless charger.
      */
     PLUGGED_TYPE_WIRELESS,
-
     /**
     * The bottom of the enum.
     */
