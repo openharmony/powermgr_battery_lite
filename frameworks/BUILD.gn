@@ -24,11 +24,11 @@ if (battery_mini_system) {
   ]
 
   local_deps +=
-      [ "//base/powermgr/battery_lite/frameworks/src/mini:battery_impl" ]
+      [ "//base/powermgr/battery_lite/frameworks/native/src/mini:battery_impl" ]
 } else {
   local_deps += [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
-    "//base/powermgr/battery_lite/frameworks/src/small:battery_impl",
+    "//base/powermgr/battery_lite/frameworks/native/src/small:battery_impl",
   ]
 }
 

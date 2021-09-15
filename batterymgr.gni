@@ -16,7 +16,7 @@ import("config.gni")
 
 batterymgr_path = "//base/powermgr/battery_lite"
 
-batterymgr_frameworks_path = "${batterymgr_path}/frameworks"
+batterymgr_frameworks_path = "${batterymgr_path}/frameworks/native"
 
 batterymgr_interfaces_path = "${batterymgr_path}/interfaces"
 
