@@ -89,9 +89,9 @@ int32_t GetBatVoltage(void)
     return ret;
 }
 
-char* GetBatTechnology(void)
+char *GetBatTechnology(void)
 {
-    char* strBuff = NULL;
+    char *strBuff = NULL;
     BatteryInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         strBuff = intf->GetBatTechnologyFunc((IUnknown *)intf);
