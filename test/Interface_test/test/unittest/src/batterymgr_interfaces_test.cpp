@@ -92,7 +92,7 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest005, TestSize.Level0)
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest005 called");
     int32_t voltage = GetBatVoltage();
     EXPECT_EQ(voltage >= 0 && voltage <= 100, 1) 
-       << "GetBatVoltage ret = " << voltage << endl;
+        << "GetBatVoltage ret = " << voltage << endl;
 };
 
 /**
