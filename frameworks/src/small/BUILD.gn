@@ -14,14 +14,11 @@
 import("//base/powermgr/battery_lite/batterymgr.gni")
 import("//build/lite/config/component/lite_component.gni")
 
-
 source_set("battery_impl") {
   cflags = [ "-fPIC" ]
   cflags_cc = cflags
 
-  sources = [ 
-      "battery_freamwork.c",
-  ]
+  sources = [ "battery_freamwork.c" ]
 
   include_dirs = [
     "${batterymgr_kits_path}",
@@ -33,12 +30,11 @@ source_set("battery_impl") {
 
   deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
 }
-
 #source_set("batteryclient_impl") {
 #  cflags = [ "-fPIC" ]
 #  cflags_cc = cflags
 #
-#  sources = [ 
+#  sources = [
 #      "battery_client.cpp",
 #  ]
 #

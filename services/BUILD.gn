@@ -24,29 +24,23 @@ if (battery_mini_system) {
     "//foundation/distributedschedule/samgr_lite/interfaces/kits/samgr",
     "//base/powermgr/battery_lite/services/src/small:battery_featrue_impl",
   ]
-  local_deps += [ 
-    "//base/powermgr/battery_lite/services/src/mini:battery_featrue_impl",
-  ]
-} else {
-  local_include_dirs += [
-    "${batterymgr_frameworks_path}/include",
-  ]
   local_deps +=
-      [ 
-        "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
-        "//base/powermgr/battery_lite/services/src/small:battery_featrue_impl",
-      ]
-
-
+      [ "//base/powermgr/battery_lite/services/src/mini:battery_featrue_impl" ]
+} else {
+  local_include_dirs += [ "${batterymgr_frameworks_path}/include" ]
+  local_deps += [
+    "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
+    "//base/powermgr/battery_lite/services/src/small:battery_featrue_impl",
+  ]
 }
 
 lite_library("batteryservice") {
   target_type = battery_library_type
 
   sources = [
-    "src/battery_manage_service.c",
-    "src/battery_manage_feature.c",
     "src/battery_device.c",
+    "src/battery_manage_feature.c",
+    "src/battery_manage_service.c",
   ]
   sources += local_sources
 
@@ -64,8 +58,8 @@ lite_library("batteryservice") {
   include_dirs += local_include_dirs
 
   deps = [
-    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
     "${batterymgr_utils_path}:powermgr_utils",
+    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
   ]
   deps += local_deps
 }
