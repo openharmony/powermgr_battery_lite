@@ -14,40 +14,19 @@
 import("//base/powermgr/battery_lite/batterymgr.gni")
 import("//build/lite/config/component/lite_component.gni")
 
-
-source_set("battery_impl") {
-  cflags = [ "-fPIC" ]
-  cflags_cc = cflags
-
-  sources = [ 
-      "battery_freamwork.c",
-  ]
+static_library("battery_impl") {
+  sources = [ "battery_freamwork.c" ]
 
   include_dirs = [
     "${batterymgr_kits_path}",
     "${batterymgr_frameworks_path}/include",
-    "${batterymgr_frameworks_path}/include/${battery_system_type}",
     "${batterymgr_services_path}/include",
-    "${batterymgr_services_path}/include/${battery_system_type}",
+    "${batterymgr_frameworks_path}/include/${battery_system_type}",
+    "//base/hiviewdfx/hilog_lite/interfaces/native/kits/hilog_lite",
   ]
 
-  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
+  deps = [
+    "//device/hisilicon/hispark_pegasus/hi3861_adapter/kal/posix:posix",
+    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
+  ]
 }
-
-#source_set("batteryclient_impl") {
-#  cflags = [ "-fPIC" ]
-#  cflags_cc = cflags
-#
-#  sources = [ 
-#      "battery_client.cpp",
-#  ]
-#
-#  include_dirs = [
-#    "${batterymgr_frameworks_path}/include",
-#    "${batterymgr_frameworks_path}/include/${battery_system_type}",
-#    "${batterymgr_services_path}/include",
-#    "${batterymgr_services_path}/include/${battery_system_type}",
-#  ]
-#
-#  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
-#}

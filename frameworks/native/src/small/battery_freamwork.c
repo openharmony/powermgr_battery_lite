@@ -139,12 +139,12 @@ static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
     return EC_SUCCESS;
 }
 
-static char* GetBatTechnologyProxy(IUnknown *iUnknown)
+static char *GetBatTechnologyProxy(IUnknown *iUnknown)
 {
     IpcIo request;
     char buffer[MAX_DATA_LEN] = { 0 };
     IpcIoInit(&request, buffer, MAX_DATA_LEN, 0);
-    char* string = NULL;
+    char *string = NULL;
 
     if (iUnknown == NULL) {
         return string;
@@ -283,9 +283,9 @@ int32_t GetBatVoltage(void)
     return ret;
 }
 
-char* GetBatTechnology(void)
+char *GetBatTechnology(void)
 {
-    char* strBuff = NULL;
+    char *strBuff = NULL;
     BatteryProxyInterface *intf = GetBatteryInterface();
     if ((intf != NULL) && (intf->GetBatSocFunc != NULL)) {
         strBuff = intf->GetBatTechnologyFunc((IUnknown *)intf);

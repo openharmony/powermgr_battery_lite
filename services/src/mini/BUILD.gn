@@ -15,9 +15,7 @@ import("//base/powermgr/battery_lite/batterymgr.gni")
 import("//build/lite/config/component/lite_component.gni")
 
 static_library("battery_featrue_impl") {
-  sources = [
-    "battery_feature_impl.c",
-  ]
+  sources = [ "battery_feature_impl.c" ]
 
   include_dirs = [
     "${batterymgr_kits_path}",
@@ -31,7 +29,5 @@ static_library("battery_featrue_impl") {
     "//kernel/liteos_m/utils",
   ]
 
-  deps = [
-    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
-  ]
+  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
 }

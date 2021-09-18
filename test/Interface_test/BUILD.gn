@@ -15,7 +15,5 @@ import("//build/lite/config/component/lite_component.gni")
 import("//build/lite/ndk/ndk.gni")
 
 group("unittest") {
-  deps = [
-    "./test/unittest:unittest",
-  ]
+  deps = [ "./test/unittest:unittest" ]
 }

@@ -23,15 +23,12 @@ if (battery_mini_system) {
     "//foundation/distributedschedule/samgr_lite/interfaces/kits/samgr",
   ]
 
-  local_deps += [ 
-     "//base/powermgr/battery_lite/frameworks/src/mini:battery_impl",
-   ]
-
+  local_deps +=
+      [ "//base/powermgr/battery_lite/frameworks/native/src/mini:battery_impl" ]
 } else {
-  
   local_deps += [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
-    "//base/powermgr/battery_lite/frameworks/src/small:battery_impl",
+    "//base/powermgr/battery_lite/frameworks/native/src/small:battery_impl",
   ]
 }
 
@@ -45,8 +42,7 @@ config("batterymgr_public_config") {
 lite_library("batterymgr") {
   target_type = battery_library_type
 
-  sources = [
-  ]
+  sources = []
 
   include_dirs = [
     "include",
@@ -57,8 +53,6 @@ lite_library("batterymgr") {
 
   public_configs = [ ":batterymgr_public_config" ]
 
-  deps = [
-    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
-  ]
+  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
   deps += local_deps
 }

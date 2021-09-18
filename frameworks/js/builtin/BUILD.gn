@@ -32,7 +32,7 @@ shared_library("ace_kit_battery") {
     "//foundation/ace/ace_engine_lite/interfaces/innerkits/builtin/async",
     "${aafwk_lite_path}/interfaces/kits/ability_lite",
     "//base/powermgr/battery_lite/interfaces/kits",
-    "//base/powermgr/battery_lite/frameworks/include",
+    "//base/powermgr/battery_lite/frameworks/native/include",
   ]
   deps = [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",

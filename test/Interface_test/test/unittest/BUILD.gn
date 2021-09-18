@@ -24,7 +24,7 @@ unittest("battery_lite_test_interface") {
     "//base/hiviewdfx/hilog_lite/interfaces/native/kits",
     "//third_party/bounds_checking_function/include",
     "//base/powermgr/battery_lite/interfaces/kits",
-    "//base/powermgr/battery_lite/frameworks/include",
+    "//base/powermgr/battery_lite/frameworks/native/include",
   ]
   deps = [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
