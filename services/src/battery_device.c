@@ -14,7 +14,6 @@
  */
 
 #include <string.h>
-#include "ibattery.h"
 #include "battery_device.h"
 
 static BatInfo battInfo = {

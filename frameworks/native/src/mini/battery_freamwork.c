@@ -14,7 +14,6 @@
  */
  
 #include "ibattery.h"
-#include "iunknown.h"
 #include "battery_info.h"
 #include "battery_interface.h"
 #include "battery_framework.h"

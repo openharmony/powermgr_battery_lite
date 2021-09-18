@@ -15,7 +15,6 @@
 
 #include <stdint.h>
 #include <pthread.h>
-#include "iunknown.h"
 #include "battery_framework.h"
 #include "battery_info.h"
 #include "battery_interface.h"

@@ -15,10 +15,6 @@
 
 #include <ohos_init.h>
 #include <samgr_lite.h>
-#include <service.h>
-#include "iunknown.h"
-#include "iproxy_server.h"
-#include "feature.h"
 #include "ibattery.h"
 #include "battery_manage_feature.h"
 #include "battery_manage_service.h"
