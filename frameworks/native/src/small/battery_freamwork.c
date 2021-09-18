@@ -201,6 +201,8 @@ static void *CreatClient(const char *service, const char *feature, uint32_t size
 
 static void DestroyClient(const char *service, const char *feature, void *iproxy)
 {
+    (void)service;
+    (void)feature;
     if (iproxy != NULL) {
         free(iproxy);
     }
