@@ -12,11 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
+#include "battery_framework.h"
 #include "ibattery.h"
 #include "battery_info.h"
 #include "battery_interface.h"
-#include "battery_framework.h"
 
 static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
 static BatteryInterface *g_intf = NULL;
