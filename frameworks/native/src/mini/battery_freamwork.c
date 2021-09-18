@@ -14,9 +14,10 @@
  */
 
 #include "battery_framework.h"
-#include "ibattery.h"
 #include "battery_info.h"
 #include "battery_interface.h"
+#include "ibattery.h"
+
 
 static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
 static BatteryInterface *g_intf = NULL;

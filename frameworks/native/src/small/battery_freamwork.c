@@ -14,8 +14,8 @@
  */
 
 #include "battery_framework.h"
-#include <stdint.h>
 #include <pthread.h>
+#include <stdint.h>
 #include "battery_info.h"
 #include "battery_interface.h"
 #include "ibattery.h"
