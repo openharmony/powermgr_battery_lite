@@ -26,9 +26,6 @@ typedef struct {
     INHERIT_IUNKNOWNENTRY(BatteryProxyInterface);
 } BatteryProxyEntry;
 
-static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
-static BatteryProxyInterface *g_intf = NULL;
-
 static int32_t BatteryCallbackInt(IOwner owner, int32_t code, IpcIo *reply)
 {
     (void)code;
@@ -211,6 +208,9 @@ static void DestroyClient(const char *service, const char *feature, void *iproxy
 
 static BatteryProxyInterface *GetBatteryInterface(void)
 {
+	static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
+    static BatteryProxyInterface *g_intf = NULL;
+
     pthread_mutex_lock(&g_mutex);
     if (g_intf != NULL) {
         pthread_mutex_unlock(&g_mutex);
