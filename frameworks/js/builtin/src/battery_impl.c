@@ -15,7 +15,6 @@
 
 #include "battery_impl.h"
 #include "battery_info.h"
-#include "hilog_wrapper.h"
 
 int32_t GetBatSocImpl(void)
 {

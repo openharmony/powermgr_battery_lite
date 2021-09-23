@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-#include <stdint.h>
 #include <pthread.h>
-#include "iunknown.h"
+#include <stdint.h>
 #include "battery_framework.h"
 #include "battery_info.h"
 #include "battery_interface.h"
@@ -27,11 +26,9 @@ typedef struct {
     INHERIT_IUNKNOWNENTRY(BatteryProxyInterface);
 } BatteryProxyEntry;
 
-static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
-static BatteryProxyInterface *g_intf = NULL;
-
 static int32_t BatteryCallbackInt(IOwner owner, int32_t code, IpcIo *reply)
 {
+    (void)code;
     if ((reply == NULL) || (owner == NULL)) {
         return EC_INVALID;
     }
@@ -125,7 +122,7 @@ static int32_t GetBatVoltageProxy(IUnknown *iUnknown)
 static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
 {
     size_t len = 0;
-
+    (void)code;
     if ((reply == NULL) || (owner == NULL)) {
         return EC_INVALID;
     }
@@ -202,6 +199,8 @@ static void *CreatClient(const char *service, const char *feature, uint32_t size
 
 static void DestroyClient(const char *service, const char *feature, void *iproxy)
 {
+    (void)service;
+    (void)feature;
     if (iproxy != NULL) {
         free(iproxy);
     }
@@ -209,6 +208,9 @@ static void DestroyClient(const char *service, const char *feature, void *iproxy
 
 static BatteryProxyInterface *GetBatteryInterface(void)
 {
+    static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
+    static BatteryProxyInterface *g_intf = NULL;
+
     pthread_mutex_lock(&g_mutex);
     if (g_intf != NULL) {
         pthread_mutex_unlock(&g_mutex);

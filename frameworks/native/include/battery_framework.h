@@ -16,7 +16,7 @@
 #ifndef BATTERY_FRAMEWORK_H
 #define BATTERY_FRAMEWORK_H
 
-
+#include <stdint.h>
 #include <samgr_lite.h>
 #include <iunknown.h>
 #include "battery_info.h"
