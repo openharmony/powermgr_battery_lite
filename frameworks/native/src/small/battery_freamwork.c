@@ -208,7 +208,7 @@ static void DestroyClient(const char *service, const char *feature, void *iproxy
 
 static BatteryProxyInterface *GetBatteryInterface(void)
 {
-	static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
+    static pthread_mutex_t g_mutex = PTHREAD_MUTEX_INITIALIZER;
     static BatteryProxyInterface *g_intf = NULL;
 
     pthread_mutex_lock(&g_mutex);
