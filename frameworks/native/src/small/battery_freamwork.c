@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-#include "battery_framework.h"
 #include <pthread.h>
 #include <stdint.h>
+#include "battery_framework.h"
 #include "battery_info.h"
 #include "battery_interface.h"
 #include "ibattery.h"

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#include "battery_device.h"
 #include <string.h>
+#include "battery_device.h"
 
 static BatInfo battInfo = {
     80,
