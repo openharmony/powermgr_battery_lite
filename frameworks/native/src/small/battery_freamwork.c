@@ -31,6 +31,7 @@ static BatteryProxyInterface *g_intf = NULL;
 
 static int32_t BatteryCallbackInt(IOwner owner, int32_t code, IpcIo *reply)
 {
+    (void)code;
     if ((reply == NULL) || (owner == NULL)) {
         return EC_INVALID;
     }
@@ -124,7 +125,7 @@ static int32_t GetBatVoltageProxy(IUnknown *iUnknown)
 static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
 {
     size_t len = 0;
-
+    (void)code;
     if ((reply == NULL) || (owner == NULL)) {
         return EC_INVALID;
     }
