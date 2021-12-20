@@ -21,10 +21,10 @@ static int32_t FeatureInvoke(IServerProxy *iProxy, int32_t funcId, void *origin,
 
 static int32_t BatterySocInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
 static int32_t ChargingStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
-static int32_t HealthStatusInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply);
+static int32_t HealthStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
 static int32_t PluggedTypeInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
 static int32_t VoltageInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
-static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply);
+static int32_t TechnologyInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
 static int32_t BatteryTemperatureInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply);
 
 static BatteryFeatureApi g_feature = {
@@ -80,7 +80,7 @@ static int32_t ChargingStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *r
     IpcIoPushInt32(reply, chargingStatus);
     return EC_SUCCESS;
 }
-static int32_t HealthStatusInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
+static int32_t HealthStatusInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
     if (iProxy == NULL) {
         return EC_FAILURE;
@@ -110,7 +110,7 @@ static int32_t VoltageInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, Ipc
     IpcIoPushInt32(reply, retVoltage);
     return EC_SUCCESS;
 }
-static int32_t TechnologyInvoke(IServerProxy *iProxy, int32_t funcId, void *origin, IpcIo *req, IpcIo *reply)
+static int32_t TechnologyInvoke(IServerProxy *iProxy, void *origin, IpcIo *req, IpcIo *reply)
 {
     if (iProxy == NULL) {
         return EC_FAILURE;
