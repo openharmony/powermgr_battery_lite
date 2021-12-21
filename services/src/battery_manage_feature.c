@@ -19,9 +19,7 @@
 #include "battery_manage_feature.h"
 #include "battery_device.h"
 
-static const int BATT_ERROR = -1;
 static const int BATT_INT_VALUE = 0;
-static const int BS_INVOKE_SUCCESS = 1;
 
 const char *GetFeatureName(Feature *feature)
 {

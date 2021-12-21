@@ -13,8 +13,14 @@
  * limitations under the License.
  */
 
-#include <pthread.h>
 #include <stdint.h>
+#include <stdlib.h>
+
+#include <pthread.h>
+#include <registry.h>
+#include <samgr_lite.h>
+#include <securec.h>
+
 #include "battery_framework.h"
 #include "battery_info.h"
 #include "battery_interface.h"
@@ -128,7 +134,7 @@ static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
     }
 
     char **strBuff = (char **)owner;
-    *strBuff = IpcIoPopString(reply, &len);
+    *strBuff = (char *)IpcIoPopString(reply, &len);
     if (*strBuff == NULL || len == 0) {
         return EC_INVALID;
     }
