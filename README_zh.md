@@ -108,4 +108,16 @@ BatteryChargeState chargState = GetChargingStatus();
 
 [电源管理子系统](https://gitee.com/openharmony/docs/blob/master/zh-cn/readme/%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86%E5%AD%90%E7%B3%BB%E7%BB%9F.md)
 
-**powermgr_powermgr_lite**
+[powermgr_power_manager](https://gitee.com/openharmony/powermgr_power_manager)
+
+[powermgr_display_manager](https://gitee.com/openharmony/powermgr_display_manager)
+
+[powermgr_battery_manager](https://gitee.com/openharmony/powermgr_battery_manager)
+
+[powermgr_thermal_manager](https://gitee.com/openharmony/powermgr_thermal_manager)
+
+[powermgr_battery_statistics](https://gitee.com/openharmony/powermgr_battery_statistics)
+
+**powermgr_battery_lite**
+
+[powermgr_powermgr_lite](https://gitee.com/openharmony/powermgr_powermgr_lite)
