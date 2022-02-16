@@ -21,7 +21,7 @@
     "name": "battery_lite",
     "subsystem": "powermgr",
     "syscap": [
-      "SystemCapability.PowerMgr.BatteryLite"
+      "SystemCapability.PowerManager.BatteryManagerLite"
     ],
     "features": [],
     "adapted_system_type": [
