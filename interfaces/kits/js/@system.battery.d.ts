@@ -13,10 +13,18 @@
  * limitations under the License.
  */
 
+/**
+ * @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
+
 export interface BatterySocResponse {
 
     batterySoc: number;
 }
+
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
 
 export interface GetBatterySOC {
 
@@ -32,6 +40,10 @@ export interface BatteryChargingStatusResponse {
   chargingStatus: number;
 }
 
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
+
 export interface GetChargingStatus {
    success?: (data: BatteryChargingStatusResponse) => void;
 
@@ -40,10 +52,18 @@ export interface GetChargingStatus {
    complete?: () => void;
 }
 
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
+
 export interface BatteryHealthStatusResponse {
 
   healthStatus: number;
 }
+
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
 
 export interface GetHealthStatus {
 
@@ -54,10 +74,18 @@ export interface GetHealthStatus {
    complete?: () => void;
 }
 
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
+
 export interface BatteryGetPluggedTypeResponse {
 
   pluggedType: number;
 }
+
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
 
 export interface GetPluggedType {
 
@@ -68,10 +96,18 @@ export interface GetPluggedType {
   complete?: () => void;
 }
 
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
+
 export interface BatteryGetVoltageResponse {
 
   voltage: number;
 }
+
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
 
 export interface GetVoltage {
 
@@ -82,10 +118,18 @@ export interface GetVoltage {
   complete?: () => void;
 }
 
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
+
 export interface BatteryTechnologyResponse {
 
   technology: string;
 }
+
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
 
 export interface GetTechnology {
 
@@ -96,10 +140,18 @@ export interface GetTechnology {
   complete?: () => void;
 }
 
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
+
 export interface BatteryTemperatureResponse {
 
   temperature: number;
 }
+
+/**
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ */
 
 export interface GetTemperature {
 
@@ -109,22 +161,52 @@ export interface GetTemperature {
 
   complete?: () => void;
 }
+
 /**
- * @Syscap SysCap.ACE.UIEngineLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
  */
+
 export default class battery {
+
+/**
+ * Battery state of charge (SoC) of the current device, in percent.
+ */
 
   static BatterySOC(options?: GetBatterySOC): void;
   
+/**
+  * Battery charging status of the current device.
+  */
+
   static ChargingStatus(options?: GetChargingStatus): void;
+
+/**
+  * Battery health state of the current device.
+  */
   
   static HealthStatus(options?: GetHealthStatus): void;
+
+/**
+  * Charger type of the current device.
+  */
   
   static PluggedType(options?: GetPluggedType): void;
+
+/**
+  * Battery voltage of the current device.
+  */
   
   static Voltage(options?: GetVoltage): void;
+
+/**
+  * Battery technology of the current device.
+  */
   
   static Technology(options?: GetTechnology): void;
   
+/**
+  * Battery temperature of the current device.
+  */
+
   static Temperature(options?: GetTemperature): void;
 }
