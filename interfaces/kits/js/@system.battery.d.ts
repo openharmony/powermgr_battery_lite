@@ -14,7 +14,7 @@
  */
 
 /**
- * @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ * @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface BatterySocResponse {
@@ -23,7 +23,7 @@ export interface BatterySocResponse {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface GetBatterySOC {
@@ -41,7 +41,7 @@ export interface BatteryChargingStatusResponse {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface GetChargingStatus {
@@ -53,7 +53,7 @@ export interface GetChargingStatus {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface BatteryHealthStatusResponse {
@@ -62,7 +62,7 @@ export interface BatteryHealthStatusResponse {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface GetHealthStatus {
@@ -75,7 +75,7 @@ export interface GetHealthStatus {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface BatteryGetPluggedTypeResponse {
@@ -84,7 +84,7 @@ export interface BatteryGetPluggedTypeResponse {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface GetPluggedType {
@@ -97,7 +97,7 @@ export interface GetPluggedType {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface BatteryGetVoltageResponse {
@@ -106,7 +106,7 @@ export interface BatteryGetVoltageResponse {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface GetVoltage {
@@ -119,7 +119,7 @@ export interface GetVoltage {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface BatteryTechnologyResponse {
@@ -128,7 +128,7 @@ export interface BatteryTechnologyResponse {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface GetTechnology {
@@ -141,7 +141,7 @@ export interface GetTechnology {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface BatteryTemperatureResponse {
@@ -150,7 +150,7 @@ export interface BatteryTemperatureResponse {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export interface GetTemperature {
@@ -163,7 +163,7 @@ export interface GetTemperature {
 }
 
 /**
- *  @sysCap SystemCapability.PowerManager.BatteryManagerLite
+ *  @sysCap SystemCapability.PowerManager.BatteryManager.Lite
  */
 
 export default class battery {
