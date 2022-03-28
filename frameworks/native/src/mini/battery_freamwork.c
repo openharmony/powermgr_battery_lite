@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -31,6 +31,7 @@ static BatteryInterface *GetBatteryInterface(void)
     }
     IUnknown *iUnknown = GetBatteryIUnknown();
     if (iUnknown == NULL) {
+        pthread_mutex_unlock(&g_mutex);
         return NULL;
     }
 
@@ -52,6 +53,7 @@ int32_t GetBatSoc(void)
     }
     return ret;
 }
+
 BatteryChargeState GetChargingStatus(void)
 {
     BatteryChargeState state = CHARGE_STATE_NONE;
@@ -61,6 +63,7 @@ BatteryChargeState GetChargingStatus(void)
     }
     return state;
 }
+
 BatteryHealthState GetHealthStatus(void)
 {
     BatteryHealthState state = HEALTH_STATE_UNKNOWN;
@@ -70,6 +73,7 @@ BatteryHealthState GetHealthStatus(void)
     }
     return state;
 }
+
 BatteryPluggedType GetPluggedType(void)
 {
     BatteryPluggedType state = PLUGGED_TYPE_NONE;
@@ -79,6 +83,7 @@ BatteryPluggedType GetPluggedType(void)
     }
     return state;
 }
+
 int32_t GetBatVoltage(void)
 {
     int32_t ret = EC_FAILURE;
@@ -98,6 +103,7 @@ char *GetBatTechnology(void)
     }
     return strBuff;
 }
+
 int32_t GetBatTemperature(void)
 {
     int32_t ret = EC_FAILURE;
