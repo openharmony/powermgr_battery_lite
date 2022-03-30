@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,27 +33,38 @@ static IBattery *g_ibattery = NULL;
 
 static const char *BATTERY_GetName(Service *service)
 {
+    (void)service;
     return BATTERY_DEVICE;
 }
 
 static BOOL Initialize(Service *service, Identity identity)
 {
+    (void)service;
+    (void)identity;
     return TRUE;
 }
 
 static BOOL MessageHandle(Service *service, Request *msg)
 {
+    (void)service;
+    (void)msg;
     return TRUE;
 }
 
 static TaskConfig GetTaskConfig(Service *service)
 {
+    (void)service;
     TaskConfig config = {LEVEL_HIGH, PRI_BELOW_NORMAL, TASK_CONFIG_STACK_SIZE, TASK_CONFIG_QUEUE_SIZE, SHARED_TASK};
     return config;
 }
 
 static int32_t Invoke(IServerProxy *iProxy, int funcId, void *origin, IpcIo *req, IpcIo *reply)
 {
+    (void)iProxy;
+    (void)funcId;
+    (void)origin;
+    (void)req;
+    (void)reply;
     return BATTERY_OK;
 }
 
@@ -87,6 +98,9 @@ int32_t GetTemperatureImpl(void)
 }
 int TurnOnLedImpl(int red, int green, int blue)
 {
+    (void)red;
+    (void)green;
+    (void)blue;
     return BATTERY_OK;
 }
 int TurnOffLedImpl(void)
@@ -95,10 +109,16 @@ int TurnOffLedImpl(void)
 }
 int SetLedColorImpl(int red, int green, int blue)
 {
+    (void)red;
+    (void)green;
+    (void)blue;
     return BATTERY_OK;
 }
 int GetLedColorImpl(int *red, int *green, int *blue)
 {
+    (void)red;
+    (void)green;
+    (void)blue;
     return BATTERY_OK;
 }
 void ShutDownImpl(void)
@@ -109,7 +129,7 @@ void UpdateBatInfoImpl(BatInfo *battery)
     if (battery == NULL) {
         return;
     }
-    if (strcpy_s(battery->BatTechnology, BATTECHNOLOGY_LEN, battInfo.BatTechnology) != EOF) {
+    if (strcpy_s(battery->BatTechnology, BATTECHNOLOGY_LEN, battInfo.BatTechnology) != EOK) {
         return;
     }
     battery->batSoc = battInfo.batSoc;
