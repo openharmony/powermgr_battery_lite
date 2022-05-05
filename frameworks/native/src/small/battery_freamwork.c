@@ -40,7 +40,7 @@ static int32_t BatteryCallbackInt(IOwner owner, int32_t code, IpcIo *reply)
     }
 
     int32_t *ret = (int32_t *)owner;
-    *ret = IpcIoPopInt32(reply);
+    ReadInt32(reply, ret);
     return EC_SUCCESS;
 }
 
@@ -134,7 +134,7 @@ static int32_t BatteryCallbackBuff(IOwner owner, int32_t code, IpcIo *reply)
     }
 
     char **strBuff = (char **)owner;
-    *strBuff = (char *)IpcIoPopString(reply, &len);
+    *strBuff = (char *)ReadString(reply, &len);
     if (*strBuff == NULL || len == 0) {
         return EC_INVALID;
     }
