@@ -53,12 +53,13 @@ lite_library("batteryservice") {
     "${batterymgr_services_path}/include/${battery_system_type}",
     "//utils/native/lite/include",
     "//foundation/distributedschedule/samgr_lite/interfaces/kits/samgr",
-    "//foundation/communication/ipc_lite/interfaces/kits",
+    "//foundation/communication/ipc/interfaces/innerkits/c/ipc/include",
   ]
   include_dirs += local_include_dirs
 
   deps = [
     "${batterymgr_utils_path}:powermgr_utils",
+    "//foundation/communication/ipc/interfaces/innerkits/c/ipc:ipc_single",
     "//foundation/distributedschedule/samgr_lite/samgr:samgr",
   ]
   deps += local_deps
