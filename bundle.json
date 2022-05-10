@@ -41,7 +41,7 @@
         "samgr_lite",
         "peripheral_input",
         "ui",
-        "ipc_lite",
+        "ipc_single",
         "aafwk_lite",
         "appexecfwk_lite",
         "hilog",
