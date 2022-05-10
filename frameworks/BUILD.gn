@@ -22,13 +22,15 @@ if (battery_mini_system) {
     "//base/hiviewdfx/hilog_lite/interfaces/native/kits/hilog_lite",
     "//foundation/distributedschedule/samgr_lite/interfaces/kits/samgr",
   ]
-
   local_deps +=
       [ "//base/powermgr/battery_lite/frameworks/native/src/mini:battery_impl" ]
 } else {
+  local_include_dirs +=
+      [ "//foundation/communication/ipc/interfaces/innerkits/c/ipc/include" ]
   local_deps += [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
     "//base/powermgr/battery_lite/frameworks/native/src/small:battery_impl",
+    "//foundation/communication/ipc/interfaces/innerkits/c/ipc:ipc_single",
   ]
 }
 
