@@ -43,7 +43,7 @@
         "ui",
         "ipc_single",
         "aafwk_lite",
-        "appexecfwk_lite",
+        "bundle_framework_lite",
         "hilog",
         "wms"
       ],
