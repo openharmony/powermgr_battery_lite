@@ -42,8 +42,8 @@
         "peripheral_input",
         "ui",
         "ipc_single",
+        "bundle_framework_lite",
         "ability_lite",
-        "appexecfwk_lite",
         "hilog",
         "wms"
       ],
