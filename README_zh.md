@@ -26,15 +26,16 @@
 
 ```
 base/powermgr/battery_lite
+├── figures           # 架构图
 ├── frameworks        # Framework层
-│   ├── include       # Framework层头文件
-│   └── src           # Framework层源文件
+│   ├── js            # 内置接口
+│   └── native        # naive层
 ├── interfaces        # 接口层
-│   ├── innerkits     # 内部接口层
 │   └── kits          # 外部接口层
-└── services          # 服务层
-    ├── include       # 服务层头文件
-    └── src           # 服务层源文件
+├── services          # 服务层
+│   ├── include       # 服务层头文件
+│   └── src           # 服务层源文件
+└── test              # 测试用例
 ```
 
 ## 说明<a name="section146636391856"></a>
