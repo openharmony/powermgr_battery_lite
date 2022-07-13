@@ -26,15 +26,16 @@ The lite battery manager provides the following functionalities:
 
 ```
 base/powermgr/battery_lite
+├── figures           # Architecture figures
 ├── frameworks        # Frameworks
-│   ├── include       # Header files
-│   └── src           # Source files
+│   ├── js            # Built_in interface
+│   └── native        # Native code
 ├── interfaces        # APIs
-│   ├── innerkits     # Internal APIs
 │   └── kits          # External APIs
 ├── services          # Services
 │   ├── include       # Header files
 │   └── src           # Source files
+└── test              # Interface test
 ```
 
 ## Usage<a name="section146636391856"></a>
