@@ -29,5 +29,5 @@ source_set("battery_featrue_impl") {
     "${batterymgr_kits_path}",
   ]
 
-  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
+  deps = [ "//foundation/systemabilitymgr/samgr_lite/samgr:samgr" ]
 }

@@ -20,7 +20,7 @@ local_deps = []
 if (battery_mini_system) {
   local_include_dirs += [
     "//base/hiviewdfx/hilog_lite/interfaces/native/kits/hilog_lite",
-    "//foundation/distributedschedule/samgr_lite/interfaces/kits/samgr",
+    "//foundation/systemabilitymgr/samgr_lite/interfaces/kits/samgr",
   ]
   local_deps +=
       [ "//base/powermgr/battery_lite/frameworks/native/src/mini:battery_impl" ]
@@ -55,6 +55,6 @@ lite_library("batterymgr") {
 
   public_configs = [ ":batterymgr_public_config" ]
 
-  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
+  deps = [ "//foundation/systemabilitymgr/samgr_lite/samgr:samgr" ]
   deps += local_deps
 }

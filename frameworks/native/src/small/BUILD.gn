@@ -28,7 +28,7 @@ source_set("battery_impl") {
     "${batterymgr_services_path}/include/${battery_system_type}",
   ]
 
-  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
+  deps = [ "//foundation/systemabilitymgr/samgr_lite/samgr:samgr" ]
 }
 #source_set("batteryclient_impl") {
 #  cflags = [ "-fPIC" ]
@@ -45,5 +45,5 @@ source_set("battery_impl") {
 #    "${batterymgr_services_path}/include/${battery_system_type}",
 #  ]
 #
-#  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
+#  deps = [ "//foundation/systemabilitymgr/samgr_lite/samgr:samgr" ]
 #}
