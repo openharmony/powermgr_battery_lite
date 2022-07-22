@@ -21,7 +21,7 @@ local_sources = []
 if (battery_mini_system) {
   local_include_dirs += [
     "//base/hiviewdfx/hilog_lite/interfaces/native/kits/hilog_lite",
-    "//foundation/distributedschedule/samgr_lite/interfaces/kits/samgr",
+    "//foundation/systemabilitymgr/samgr_lite/interfaces/kits/samgr",
     "//base/powermgr/battery_lite/services/src/small:battery_featrue_impl",
   ]
   local_deps +=
@@ -52,7 +52,7 @@ lite_library("batteryservice") {
     "${batterymgr_services_path}/include",
     "${batterymgr_services_path}/include/${battery_system_type}",
     "//utils/native/lite/include",
-    "//foundation/distributedschedule/samgr_lite/interfaces/kits/samgr",
+    "//foundation/systemabilitymgr/samgr_lite/interfaces/kits/samgr",
     "//foundation/communication/ipc/interfaces/innerkits/c/ipc/include",
   ]
   include_dirs += local_include_dirs
@@ -60,7 +60,7 @@ lite_library("batteryservice") {
   deps = [
     "${batterymgr_utils_path}:powermgr_utils",
     "//foundation/communication/ipc/interfaces/innerkits/c/ipc:ipc_single",
-    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
+    "//foundation/systemabilitymgr/samgr_lite/samgr:samgr",
   ]
   deps += local_deps
 }
