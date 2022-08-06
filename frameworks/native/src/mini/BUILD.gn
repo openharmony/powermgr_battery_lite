@@ -27,6 +27,6 @@ static_library("battery_impl") {
 
   deps = [
     "//device/soc/hisilicon/hi3861v100/hi3861_adapter/kal/posix:posix",
-    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
+    "//foundation/systemabilitymgr/samgr_lite/samgr:samgr",
   ]
 }
