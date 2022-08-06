@@ -29,7 +29,7 @@ unittest("battery_lite_test_interface") {
   deps = [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
     "//base/powermgr/battery_lite/frameworks:batterymgr",
-    "//foundation/distributedschedule/samgr_lite/samgr:samgr",
+    "//foundation/systemabilitymgr/samgr_lite/samgr:samgr",
   ]
 }
 

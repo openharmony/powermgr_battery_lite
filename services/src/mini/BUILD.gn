@@ -29,5 +29,5 @@ static_library("battery_featrue_impl") {
     "//kernel/liteos_m/utils",
   ]
 
-  deps = [ "//foundation/distributedschedule/samgr_lite/samgr:samgr" ]
+  deps = [ "//foundation/systemabilitymgr/samgr_lite/samgr:samgr" ]
 }
