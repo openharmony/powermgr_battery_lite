@@ -49,7 +49,7 @@ lite_library("batterymgr") {
   include_dirs = [
     "include",
     "include/${battery_system_type}",
-    "//utils/native/lite/include",
+    "//commonlibrary/utils_lite/include",
   ]
   include_dirs += local_include_dirs
 
