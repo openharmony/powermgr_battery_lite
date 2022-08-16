@@ -51,7 +51,7 @@ lite_library("batteryservice") {
     "${batterymgr_frameworks_path}/include/${battery_system_type}",
     "${batterymgr_services_path}/include",
     "${batterymgr_services_path}/include/${battery_system_type}",
-    "//utils/native/lite/include",
+    "//commonlibrary/utils_lite/include",
     "//foundation/systemabilitymgr/samgr_lite/interfaces/kits/samgr",
     "//foundation/communication/ipc/interfaces/innerkits/c/ipc/include",
   ]
