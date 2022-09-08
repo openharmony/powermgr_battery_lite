@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef BATERY_INFO_H
-#define BATERY_INFO_H
+#ifndef BATTERY_INFO_H
+#define BATTERY_INFO_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -108,4 +108,4 @@ int32_t GetBatTemperature(void);
 #ifdef __cplusplus
 }
 #endif // __cplusplus
-#endif // BATERY_INFO_H
+#endif // BATTERY_INFO_H
