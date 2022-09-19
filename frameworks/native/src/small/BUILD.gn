@@ -18,7 +18,7 @@ source_set("battery_impl") {
   cflags = [ "-fPIC" ]
   cflags_cc = cflags
 
-  sources = [ "battery_freamwork.c" ]
+  sources = [ "battery_framework.c" ]
 
   include_dirs = [
     "${batterymgr_kits_path}",

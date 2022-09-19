@@ -15,7 +15,7 @@ import("//base/powermgr/battery_lite/batterymgr.gni")
 import("//build/lite/config/component/lite_component.gni")
 
 static_library("battery_impl") {
-  sources = [ "battery_freamwork.c" ]
+  sources = [ "battery_framework.c" ]
 
   include_dirs = [
     "${batterymgr_kits_path}",
