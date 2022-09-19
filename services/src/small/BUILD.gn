@@ -14,7 +14,7 @@
 import("//base/powermgr/battery_lite/batterymgr.gni")
 import("//build/lite/config/component/lite_component.gni")
 
-source_set("battery_featrue_impl") {
+source_set("battery_feature_impl") {
   cflags = [ "-fPIC" ]
   cflags_cc = cflags
 
