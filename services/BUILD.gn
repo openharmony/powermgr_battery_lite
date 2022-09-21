@@ -22,15 +22,15 @@ if (battery_mini_system) {
   local_include_dirs += [
     "//base/hiviewdfx/hilog_lite/interfaces/native/kits/hilog_lite",
     "//foundation/systemabilitymgr/samgr_lite/interfaces/kits/samgr",
-    "//base/powermgr/battery_lite/services/src/small:battery_featrue_impl",
+    "//base/powermgr/battery_lite/services/src/small:battery_feature_impl",
   ]
   local_deps +=
-      [ "//base/powermgr/battery_lite/services/src/mini:battery_featrue_impl" ]
+      [ "//base/powermgr/battery_lite/services/src/mini:battery_feature_impl" ]
 } else {
   local_include_dirs += [ "${batterymgr_frameworks_path}/include" ]
   local_deps += [
     "//base/hiviewdfx/hilog_lite/frameworks/featured:hilog_shared",
-    "//base/powermgr/battery_lite/services/src/small:battery_featrue_impl",
+    "//base/powermgr/battery_lite/services/src/small:battery_feature_impl",
   ]
 }
 
