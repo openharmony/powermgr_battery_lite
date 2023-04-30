@@ -25,9 +25,9 @@
     ],
     "features": [],
     "adapted_system_type": [
-      "liteos_a",
-      "liteos_m",
-      "linux"
+      "mini",
+      "small",
+      "standard"
     ],
     "rom": "22KB",
     "ram": "~10KB",
