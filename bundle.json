@@ -40,12 +40,12 @@
         "utils_base",
         "samgr_lite",
         "peripheral_input",
-        "ui",
+        "ui_lite",
         "ipc_single",
         "bundle_framework_lite",
         "ability_lite",
         "hilog",
-        "wms"
+        "window_manager_lite"
       ],
       "third_party": [
         "bounds_checking_function"
