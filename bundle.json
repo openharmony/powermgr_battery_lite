@@ -36,15 +36,11 @@
     ],
     "deps": {
       "components": [
-        "utils_base",
+        "utils_lite",
         "samgr_lite",
-        "peripheral_input",
-        "ui_lite",
-        "ipc_single",
-        "bundle_framework_lite",
+        "ipc",
         "ability_lite",
-        "hilog",
-        "window_manager_lite"
+        "hilog_lite"
       ],
       "third_party": [
         "bounds_checking_function"
