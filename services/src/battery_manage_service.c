@@ -51,7 +51,7 @@ static const char *BatteryGetName(Service *service)
     return BATTERY_SERVICE;
 }
 
-void UpdateBatteryMsg(BatInfo* battery)
+static void UpdateBatteryMsg(BatInfo* battery)
 {
     g_batteryDevice = NewBatterInterfaceInstance();
     if (g_batteryDevice == NULL) {
@@ -96,7 +96,7 @@ static BatteryService *BatteryGetInstance(void)
     return &g_batteryService;
 }
 
-void BatteryMonitorHandle(void *arg)
+static void BatteryMonitorHandle(void *arg)
 {
     Request request = {
         .msgId = BATT_SRV_MSG_UPDATE,
