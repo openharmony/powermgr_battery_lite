@@ -36,7 +36,7 @@ protected:
  * @tc.desc: Test the interface Battery::GetBatSoc.
  * @tc.type: FUNC
  */
-HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest001, TestSize.Level0)
+HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest001, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest001 called");
     int32_t soc = GetBatSoc();
@@ -48,7 +48,7 @@ HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest001, TestSize.Level0)
  * @tc.desc: Test the interface Battery::GetChargingStatus().
  * @tc.type: FUNC
  */
-HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest002, TestSize.Level0)
+HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest002, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest002 called");
     BatteryChargeState status = GetChargingStatus();
@@ -61,7 +61,7 @@ HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest002, TestSize.Level0)
  * @tc.desc: Test the interface Battery::GetHealthStatus().
  * @tc.type: FUNC
  */
-HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest003, TestSize.Level0)
+HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest003, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest003 called");
     BatteryHealthState status = GetHealthStatus();
@@ -74,7 +74,7 @@ HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest003, TestSize.Level0)
  * @tc.desc: Test the interface Battery::GetPluggedType
  * @tc.type: FUNC
  */
-HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest004, TestSize.Level0)
+HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest004, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest004 called");
     BatteryPluggedType status = GetPluggedType();
@@ -87,7 +87,7 @@ HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest004, TestSize.Level0)
  * @tc.desc: Test the interface Battery::GetBatVoltage
  * @tc.type: FUNC
  */
-HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest005, TestSize.Level0)
+HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest005, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest005 called");
     int32_t voltage = GetBatVoltage();
@@ -100,7 +100,7 @@ HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest005, TestSize.Level0)
  * @tc.desc: Test the interface Battery::GetBatTemperature
  * @tc.type: FUNC
  */
-HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest006, TestSize.Level0)
+HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest006, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest007 called");
     int32_t temperature = GetBatTemperature();
@@ -113,7 +113,7 @@ HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest006, TestSize.Level0)
  * @tc.desc: Test the interface Battery::GetBatTechnology
  * @tc.type: FUNC
  */
-HWTEST_F (BatterymgrInterfacesTest, BatteryMgrInterfaceTest007, TestSize.Level0)
+HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest007, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest006 called");
     char *technology = GetBatTechnology();
