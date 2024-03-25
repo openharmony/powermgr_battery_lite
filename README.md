@@ -1,6 +1,6 @@
 # Lite Battery Manager<a name="EN-US_TOPIC_0000001174637973"></a>
 
--   [Introduction](#section11660541593test)
+-   [Introduction](#section11660541593)
 -   [Directory Structure](#section19472752217)
 -   [Usage](#section146636391856)
     -   [Available APIs](#section481251394)
