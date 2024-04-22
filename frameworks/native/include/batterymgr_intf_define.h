@@ -34,5 +34,5 @@ extern "C" {
 
 #ifdef __cplusplus
 }
-#endif // __cplusplus 
+#endif // __cplusplus
 #endif // BATTERYMGR_INTF_DEFINE_H
