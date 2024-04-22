@@ -41,7 +41,7 @@ static BatteryService *BatteryGetInstance(void);
 static BOOL Initialize(Service *service, Identity identity)
 {
     BatteryService *batterService = BatteryGetInstance();
-    batterService->identity = identity;   
+    batterService->identity = identity;
     BatteryFeatureTimeerInit();
     return TRUE;
 }
