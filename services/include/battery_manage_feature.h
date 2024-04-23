@@ -18,7 +18,7 @@
 
 #include "feature.h"
 #include "message.h"
-#include "service.h"    
+#include "service.h"
 #include "ibattery.h"
 #include "battery_info.h"
 #include "battery_mgr.h"
