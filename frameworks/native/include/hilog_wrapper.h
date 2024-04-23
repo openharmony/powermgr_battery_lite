@@ -24,8 +24,8 @@
 extern "C" {
 #endif // __cplusplus
 
-#define MY_FILENAME            (__builtin_strrchr(__FILE__, '/') ? __builtin_strrchr(__FILE__, '/') + 1 : __FILE__)
-#define __FORMATED__(fmt, ...)  "[%s] %s# " fmt, MY_FILENAME, __FUNCTION__, ##__VA_ARGS__
+#define FILE_NAME            (__builtin_strrchr(__FILE__, '/') ? __builtin_strrchr(__FILE__, '/') + 1 : __FILE__)
+#define FILE_FORMATED(fmt, ...)  "[%s] %s# " fmt, FILE_NAME, __FUNCTION__, ##__VA_ARGS__
 
 #ifdef POWER_HILOGD
 #undef POWER_HILOGD
@@ -54,11 +54,11 @@ extern "C" {
 #define POWER_HILOGE(...)   HILOG_ERROR(HILOG_MODULE_POWERMGR, __VA_ARGS__)
 #define POWER_HILOGF(...)   HILOG_FATAL(HILOG_MODULE_POWERMGR, __VA_ARGS__)
 #else // !__LITEOS_M__
-#define POWER_HILOGD(...)   HILOG_DEBUG(LOG_CORE, __FORMATED__(__VA_ARGS__))
-#define POWER_HILOGI(...)   HILOG_INFO(LOG_CORE, __FORMATED__(__VA_ARGS__))
-#define POWER_HILOGW(...)   HILOG_WARN(LOG_CORE, __FORMATED__(__VA_ARGS__))
-#define POWER_HILOGE(...)   HILOG_ERROR(LOG_CORE, __FORMATED__(__VA_ARGS__))
-#define POWER_HILOGF(...)   HILOG_FATAL(LOG_CORE, __FORMATED__(__VA_ARGS__))
+#define POWER_HILOGD(...)   HILOG_DEBUG(LOG_CORE, FILE_FORMATED(__VA_ARGS__))
+#define POWER_HILOGI(...)   HILOG_INFO(LOG_CORE, FILE_FORMATED(__VA_ARGS__))
+#define POWER_HILOGW(...)   HILOG_WARN(LOG_CORE, FILE_FORMATED(__VA_ARGS__))
+#define POWER_HILOGE(...)   HILOG_ERROR(LOG_CORE, FILE_FORMATED(__VA_ARGS__))
+#define POWER_HILOGF(...)   HILOG_FATAL(LOG_CORE, FILE_FORMATED(__VA_ARGS__))
 #endif // __LITEOS_M__
 
 #ifdef __cplusplus
