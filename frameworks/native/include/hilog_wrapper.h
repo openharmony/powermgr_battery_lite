@@ -24,8 +24,8 @@
 extern "C" {
 #endif // __cplusplus
 
-#define __FILENAME__            (__builtin_strrchr(__FILE__, '/') ? __builtin_strrchr(__FILE__, '/') + 1 : __FILE__)
-#define __FORMATED__(fmt, ...)  "[%s] %s# " fmt, __FILENAME__, __FUNCTION__, ##__VA_ARGS__
+#define MY_FILENAME            (__builtin_strrchr(__FILE__, '/') ? __builtin_strrchr(__FILE__, '/') + 1 : __FILE__)
+#define __FORMATED__(fmt, ...)  "[%s] %s# " fmt, MY_FILENAME, __FUNCTION__, ##__VA_ARGS__
 
 #ifdef POWER_HILOGD
 #undef POWER_HILOGD
