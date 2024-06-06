@@ -39,7 +39,6 @@
         "utils_lite",
         "samgr_lite",
         "ipc",
-        "ability_lite",
         "hilog_lite"
       ],
       "third_party": [
