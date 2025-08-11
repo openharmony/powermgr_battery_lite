@@ -51,7 +51,9 @@
         "//base/powermgr/battery_lite/frameworks/js:ace_battery_kits"
       ],
       "inner_kits": [],
-      "test": []
+      "test": [
+        "//base/powermgr/battery_lite/test/Interface_test:unittest"
+      ]
     }
   }
 }
