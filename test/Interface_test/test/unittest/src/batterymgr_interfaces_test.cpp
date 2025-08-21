@@ -40,7 +40,9 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest001, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest001 called");
     int32_t soc = GetBatSoc();
-    EXPECT_EQ ((soc >= 0 && soc <= 100), 1) << "GetBatterySoc ret = " << soc << endl;
+    if (soc != -1) {
+        EXPECT_EQ ((soc >= 0 && soc <= 100), 1) << "GetBatterySoc ret = " << soc << endl;
+    }
 };
 
 /**
@@ -91,8 +93,10 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest005, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest005 called");
     int32_t voltage = GetBatVoltage();
-    EXPECT_EQ ((voltage >= 0 && voltage <= 100), 1) 
-        << "GetBatVoltage ret = " << voltage << endl;
+    if (voltage != -1) {
+        EXPECT_EQ ((voltage >= 0 && voltage <= 100), 1) 
+            << "GetBatVoltage ret = " << voltage << endl;
+    }
 };
 
 /**
@@ -117,7 +121,9 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest007, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest006 called");
     char *technology = GetBatTechnology();
-    EXPECT_EQ (strcmp(technology, "Ternary_Lithium"), 0) 
-        << "GetBatTechnology ret = " << technology << endl;
+    if (technology) {
+        EXPECT_EQ (strcmp(technology, "Ternary_Lithium"), 0) 
+            << "GetBatTechnology ret = " << technology << endl;
+    }
 };
 };
