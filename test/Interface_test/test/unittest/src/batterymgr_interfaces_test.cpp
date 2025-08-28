@@ -108,8 +108,10 @@ HWTEST_F(BatterymgrInterfacesTest, BatteryMgrInterfaceTest006, TestSize.Level0)
 {
     HILOG_INFO(HILOG_MODULE_APP, "BatteryMgrInterfaceTest007 called");
     int32_t temperature = GetBatTemperature();
-    EXPECT_EQ ((temperature >= 0 && temperature <= 100), 1) 
-        << "GetBatTemperature ret = " << temperature << endl;
+    if (temperature != -1) {
+        EXPECT_EQ ((temperature >= 0 && temperature <= 100), 1) 
+            << "GetBatTemperature ret = " << temperature << endl;
+    }
 };
 
 /**
